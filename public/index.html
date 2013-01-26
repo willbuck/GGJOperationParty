@@ -60,7 +60,7 @@
         //var socketEndpointUrl = environment.dev ? 'http://localhost' : 'http://ggj-2013-operation-party.herokuapp.com/';
         var socketEndpointUrl = 'http://localhost';
         var joined = false,
-	        socket = io.connect(socketEndpointUrl);
+	        socket = io.connect(window.location.hostname);
 
         // Get named lobbies
         socket.on('lobbies', function (data) {
