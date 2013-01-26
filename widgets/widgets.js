@@ -25,11 +25,50 @@ function preloadImages(urls, oncomplete){
 function setupCanvas(setupComplete){
 	var widget = {}
 	
+	// Prevent scrolling on iOS
+	document.ontouchstart = function(e){
+		e.preventDefault();
+	}
+	
 	var canvas = widget.canvas = document.getElementsByTagName('canvas')[0];
 	var ctx = widget.ctx = canvas.getContext('2d');
 	
 	ctx.fillStyle = "magenta";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	
+	// Emulate mouse input on iOS
+	var touchID = null;
+	
+	canvas.ontouchstart = function(e){
+		if(touchID != null) return;
+		
+		var touch = e.changedTouches[0];
+		touchID = touch.identifier;
+		if(canvas.onmousedown) canvas.onmousedown(touch);
+	}
+	
+	canvas.ontouchmove = function(e){
+		var touches = e.changedTouches;
+		for(i=0; i<touches.length; i++){
+			var touch = touches[i];
+			if(touch.identifier = touchID){
+				// Just send it the touch object, it just needs clientX/Y
+				if(canvas.onmousemove) canvas.onmousemove(touch);
+				if(canvas.onclick) canvas.onclick(touch);
+			}
+		}
+	}
+	
+	canvas.ontouchend = function(e){
+		var touches = e.changedTouches;
+		for(i=0; i<touches.length; i++){
+			var touch = touches[i];
+			if(touch.identifier = touchID){
+				if(canvas.onmouseup) canvas.onmouseup(touch);
+				touchID = null;
+			}
+		}
+	}
 	
 	widget.images = preloadImages([
 		'tmp-button-up.png',
