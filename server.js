@@ -4,8 +4,11 @@ var express = require('express'),
     _ = require('underscore'),
     io = require('socket.io').listen(app),
     Lobby = require('./app/Lobby.js'),
-    lobbies = {'test': new Lobby({'io': io})};
+    lobbies = {'test': new Lobby({'name': 'test', 'io': io})};
 
+// app.use(express.cookieParser());
+// app.use(express.session({ secret: 'awesome sauce' }));
+// app.use(app.router);
 app.use(express.static(config.public));
 
 app.listen(3000);
@@ -14,6 +17,8 @@ app.listen(3000);
 io.sockets.on('connection', function (socket) {
     //socket.emit('data', {hello: 'world'});
     
+    console.log('a client is connected');
+    
     // 1. Somebody connected, send them a list of lobbies/rooms/groups whatever they can join
     socket.emit('lobbies', {lobbies: _.keys(lobbies)});
     
@@ -21,10 +26,10 @@ io.sockets.on('connection', function (socket) {
     socket.on(
         'join',
         function (data, clientCallback) {
-            console.log('player joined lobby: ' + data.lobby);
-            
             if (lobbies[data.lobby]) {
-                lobbies[data.lobby].addPlayer(socket, data);
+                if (lobbies[data.lobby].addPlayer(socket, data)) {
+                    console.log('player joined lobby: ' + data.lobby);
+                }
             }
         }
     );

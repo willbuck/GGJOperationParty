@@ -51,12 +51,46 @@
 	
 
 	<script>
-	var socket = io.connect('http://localhost');
+	console.log('load');
+	
+	var joined = false,
+	    socket = io.connect('http://localhost');
 
+    // Get named lobbies
 	socket.on('lobbies', function (data) {
-	    console.log(data);
+	    if (joined) {
+	        return;
+	    }
 	    
+	    // Join a named lobby
 	    socket.emit('join', {lobby: 'test'});
+	    
+	    // You joined your lobby successfully
+	    socket.on('joined', function () {
+            if (joined) {
+    	        return;
+    	    }
+    	    
+    	    console.log('joined');
+    	    
+            joined = true;
+            
+	        // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
+	        socket.emit('ready');
+	    });
+	    
+	    // Hey the game started!
+	    socket.on('play', function () {
+	        console.log('play!');
+        });
+        
+        socket.on('task', function (data) {
+            console.log(data);
+        });
+        
+        socket.on('disconnect', function () {
+            socket.disconnect();
+        });
 	});
 	</script>
 
