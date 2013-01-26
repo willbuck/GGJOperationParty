@@ -7,9 +7,14 @@ function preloadImages(urls, oncomplete){
 		
 		img.onload = function(){
 			images[url] = img;
+			console.log("loaded: " + url)
 			if(Object.keys(images).length == urls.length){
 				oncomplete();
 			}
+		}
+		
+		img.onerror = function(){
+			console.log("Error loading: " + url);
 		}
 	}
 	
@@ -33,6 +38,7 @@ function setupCanvas(setupComplete){
 		'tmp-dial.png',
 		'tmp-slider-bg.png',
 		'tmp-slider.png',
+		'tmp-bellows.png',
 	], function(){
 		setupComplete(widget);
 	});
