@@ -4,14 +4,16 @@
     "dependencies": {
         "express": "2.5.11",
         "underscore": "1.4.1",
-        "socket.io": "~0.9.11"
+        "socket.io": "~0.9.11",
+        "handlebars": "1.0.8"
     },
     "devDependencies": {
         "nodelint": "0.6.2"
     },
     "main": "server",
     "engines": {
-        "node": ">= 0.6.0"
+        "node": "0.8.x",
+        "npm": "1.1.x"
     },
     "scripts": {
         "test": "make lint && make test"
