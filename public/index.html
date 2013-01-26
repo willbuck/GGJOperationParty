@@ -34,6 +34,8 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
 <script src="/socket.io/socket.io.js"></script>
+<script src="/shared/Class.js"></script>
+
 </head>
 <body>
 
@@ -42,8 +44,10 @@
 	<script>
 	var socket = io.connect('http://localhost');
 
-	socket.on('data', function (data) {
+	socket.on('lobbies', function (data) {
 	    console.log(data);
+	    
+	    socket.emit('join', {lobby: 'test'});
 	});
 	</script>
 
