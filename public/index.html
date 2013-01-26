@@ -33,8 +33,11 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="/shared/Class.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/shared/Class.js"></script>
+
+    <script type="text/javascript" src="/js/external/zepto.js"></script>
+    <script type="text/javascript" src="/js/external/handlebars.js"></script>
 
 </head>
 <body style="height: 100%; margin: 0; padding: 0;">
@@ -45,54 +48,60 @@
 		</div><!-- eight columns -->
 		<div style="height: 70%; margin: 0; padding: 0; background-color: red;">
 			<p>Widgets n stuff go here </p>
+            <div id="templateDropzone"></div>
 		</div>
 	</div><!-- container -->	
 
 	
 
 	<script>
-	console.log('load');
-	
-	var joined = false,
-	    socket = io.connect('http://localhost');
+        console.log('Loading Socket.io connection');
 
-    // Get named lobbies
-	socket.on('lobbies', function (data) {
-	    if (joined) {
-	        return;
-	    }
-	    
-	    // Join a named lobby
-	    socket.emit('join', {lobby: 'test'});
-	    
-	    // You joined your lobby successfully
-	    socket.on('joined', function () {
+        //var socketEndpointUrl = environment.dev ? 'http://localhost' : 'http://ggj-2013-operation-party.herokuapp.com/';
+        var socketEndpointUrl = 'http://localhost';
+        var joined = false,
+	        socket = io.connect(socketEndpointUrl);
+
+        // Get named lobbies
+        socket.on('lobbies', function (data) {
             if (joined) {
-    	        return;
-    	    }
-    	    
-    	    console.log('joined');
-    	    
-            joined = true;
-            
-	        // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
-	        socket.emit('ready');
-	    });
-	    
-	    // Hey the game started!
-	    socket.on('play', function () {
-	        console.log('play!');
+                return;
+            }
+
+            // Join a named lobby
+            socket.emit('join', {lobby: 'test'});
+
+            // You joined your lobby successfully
+            socket.on('joined', function () {
+                if (joined) {
+                    return;
+                }
+
+                console.log('joined');
+
+                joined = true;
+
+                // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
+                socket.emit('ready');
+            });
+
+            // Hey the game started!
+            socket.on('play', function () {
+                console.log('play!');
+            });
+
+            socket.on('task', function (data) {
+                console.log('Task came with data: ' + data);
+            });
+
+            socket.on('disconnect', function () {
+                socket.disconnect();
+            });
         });
-        
-        socket.on('task', function (data) {
-            console.log(data);
-        });
-        
-        socket.on('disconnect', function () {
-            socket.disconnect();
-        });
-	});
 	</script>
+
+    <script src="/js/internal/templates/test.handlebars.js"></script>
+    <script type="text/javascript" src="/js/internal/templates.js"></script>
 
 
 
@@ -101,7 +110,9 @@
 
 	<!-- Delete everything in this .container and get started on your own site! -->
 
-	<!-- <div class="container">
+	<!--
+
+	<div class="container">
 		<div class="sixteen columns">
 			<h1 class="remove-bottom" style="margin-top: 40px">Skeleton</h1>
 			<h5>Version 1.2</h5>
@@ -126,6 +137,7 @@
 		</div>
 
 	</div><!-- container -->
+</body>
 
 
 </html>

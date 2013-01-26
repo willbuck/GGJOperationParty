@@ -11,6 +11,7 @@ var express = require('express'),
 // app.use(app.router);
 app.use(express.static(config.public));
 
+// Accept env var port number, for cloud deployment
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);
