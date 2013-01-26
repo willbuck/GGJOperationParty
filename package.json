@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "dependencies": {
         "express": "2.5.11",
-        "underscore": "1.4.1"
+        "underscore": "1.4.1",
+        "socket.io": "~0.9.11"
     },
     "devDependencies": {
         "nodelint": "0.6.2"
