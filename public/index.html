@@ -38,6 +38,7 @@
 
     <script type="text/javascript" src="/js/external/zepto.js"></script>
     <script type="text/javascript" src="/js/external/handlebars.js"></script>
+    <script type="text/javascript" src="/js/vendor/underscore-min.js"></script>
 
 </head>
 <body style="height: 100%; margin: 0; padding: 0;">
@@ -48,60 +49,25 @@
 		</div><!-- eight columns -->
 		<div style="height: 70%; margin: 0; padding: 0; background-color: red;">
 			<p>Widgets n stuff go here </p>
-            <div id="templateDropzone"></div>
+            <div id="widget1"></div>
+            <div id="widget2"></div>
+            <div id="widget3"></div>
+            <div id="widget4"></div>
 		</div>
 	</div><!-- container -->	
 
 	
-
-	<script>
-        console.log('Loading Socket.io connection');
-
-        //var socketEndpointUrl = environment.dev ? 'http://localhost' : 'http://ggj-2013-operation-party.herokuapp.com/';
-        var socketEndpointUrl = 'http://localhost';
-        var joined = false,
-	        socket = io.connect(window.location.hostname);
-
-        // Get named lobbies
-        socket.on('lobbies', function (data) {
-            if (joined) {
-                return;
-            }
-
-            // Join a named lobby
-            socket.emit('join', {lobby: 'test'});
-
-            // You joined your lobby successfully
-            socket.on('joined', function () {
-                if (joined) {
-                    return;
-                }
-
-                console.log('joined');
-
-                joined = true;
-
-                // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
-                socket.emit('ready');
-            });
-
-            // Hey the game started!
-            socket.on('play', function () {
-                console.log('play!');
-            });
-
-            socket.on('task', function (data) {
-                console.log('Task came with data: ' + data);
-            });
-
-            socket.on('disconnect', function () {
-                socket.disconnect();
-            });
-        });
-	</script>
-
+    <!-- Post-load js of ours -->
+    <!-- Handlebars compiled templates-->
     <script src="/js/internal/templates/test.handlebars.js"></script>
+    <script src="/js/internal/templates/buttonWidget.handlebars.js"></script>
+
+    <!-- template utilities -->
     <script type="text/javascript" src="/js/internal/templates.js"></script>
+
+    <!-- socket.io connection and handlers -->
+    <script src="/js/internal/socketHandlers.js"></script>
+
 
 
 

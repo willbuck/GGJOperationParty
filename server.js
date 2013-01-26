@@ -19,6 +19,7 @@ app.listen(port, function() {
 });
 
 // Socket.io code uncoupled from HTTP server!!
+// Config for heroku, it doesnt support websockets so hafta use long-poll instead
 if(NODE_ENV === 'production') {
     io.configure(function () {
         io.set("transports", ["xhr-polling"]);
