@@ -4,15 +4,14 @@
 <script>
 
 setupCanvas(function(widget){
-	widget.angle = 0;
 	widget.value = 0;
 	
-	function draw(){
+	function draw(angle){
 		widget.ctx.setTransform(1, 0, 0, 1, 0, 0)
 		widget.ctx.drawImage(widget.images['tmp-dial-bg.png'], 0, 0);
 		
-		var c = Math.cos(widget.angle);
-		var s = Math.sin(widget.angle);
+		var c = Math.cos(angle);
+		var s = Math.sin(angle);
 		widget.ctx.setTransform(c, s, -s, c, 150, 150)
 		widget.ctx.drawImage(widget.images['tmp-dial.png'], -150, -150);
 	}
@@ -44,8 +43,7 @@ setupCanvas(function(widget){
 			widget.value = value;
 			console.log("value set to: " + value);
 			
-			widget.angle = value*quant;
-			draw();
+			draw(value*quant);
 		}
 	}
 	

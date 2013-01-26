@@ -31,6 +31,8 @@ function setupCanvas(setupComplete){
 		'tmp-button-down.png',
 		'tmp-dial-bg.png',
 		'tmp-dial.png',
+		'tmp-slider-bg.png',
+		'tmp-slider.png',
 	], function(){
 		setupComplete(widget);
 	});
