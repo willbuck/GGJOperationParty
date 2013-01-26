@@ -1,0 +1,19 @@
+Space Team had:
+* buttons
+* toggle buttons
+* toggle switches
+* sliders
+* dials
+* radio buttons
+* grouped buttons
+
+There were also a few special events like the wormhole or asteroid.
+Panels would also swing or become covered in goo.
+
+Some ideas to go with a medical theme depending on how wacky we want to go:
+* Press and hold button: (plug the artery, charge the defibrilator)
+* Rub ointment on a rash. (Could paint on a canvas and detect pixel count easily)
+* Stitch a cut (is a zig zag motion too hard to detect or non-intuitive?)
+* Pump a bellows.
+* Rhythmic tapping. (like CPR maybe)
+* Swipe to downward to make an incision, swipe up to close.
