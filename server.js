@@ -11,7 +11,10 @@ var express = require('express'),
 // app.use(app.router);
 app.use(express.static(config.public));
 
-app.listen(3000);
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 // Socket.io code uncoupled from HTTP server!!
 io.sockets.on('connection', function (socket) {
