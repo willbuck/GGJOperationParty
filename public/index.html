@@ -4,7 +4,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
-<html>
+<html style="height: 100%; margin: 0; padding: 0;">
 <head>    
 	<meta charset="utf-8" />
 
@@ -35,9 +35,18 @@
 
 <script src="/socket.io/socket.io.js"></script>
 </head>
-<body>
+<body style="height: 100%; margin: 0; padding: 0;">
 
-	<h1>hello world</h1>
+	<div class="container" style="height: 100%; margin: 0; padding: 0; align: center;">
+		<div style="height: 30%; margin: 0; padding: 0; background-color: blue;">
+			<h1>Game Status</h1>
+		</div><!-- eight columns -->
+		<div style="height: 70%; margin: 0; padding: 0; background-color: red;">
+			<p>Widgets n stuff go here </p>
+		</div>
+	</div><!-- container -->	
+
+	
 
 	<script>
 	var socket = io.connect('http://localhost');
