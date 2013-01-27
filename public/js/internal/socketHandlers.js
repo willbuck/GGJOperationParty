@@ -56,7 +56,15 @@ var SocketHandlers = (function() {
         socket.on('task', function (data) {
             console.log('Task came with data: ', data);
             
-            $('#task').html(data.action + ' ' + data.name);
+            if (data.empty) {
+                $('#task').html('');
+                
+            } else {
+                $('#task').html('');
+                setTimeout(function () {
+                    $('#task').html(data.action + ' ' + data.name);
+                }, 1000);
+            }
             
             // Testing: auto-play the next move to win
             //data.value = data.requiredValue;

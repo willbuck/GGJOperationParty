@@ -45,29 +45,29 @@ var Class = require('./Class.js'),
             {type: 'pump', name: 'Lungs', action: 'Pump'},
             {type: 'chestIncision', name: 'Chest', action: 'Sew'},
             {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},
+            {type: 'buttonMomentary', name: 'Gas', action: 'Vent'}/*,
             {type: 'buttonPushOn', name: 'Heart', action: 'Pump'},
             {type: 'buttonPushOn', name: 'Food', action: 'Digest'},
             {type: 'buttonPushOn', name: 'Funny Bone', action: 'Tickle'},
-            {type: 'buttonPushOn', name: 'Gas', action: 'Vent'},
-            {type: 'buttonPushOn', name: 'Toes', action: 'Twinkle'}
+            {type: 'buttonPushOn', name: 'Toes', action: 'Twinkle'}*/
         ];
     
     
     Widget.getRandomSet = function (numPlayers, widgetsPerPlayer) {
-        _.shuffle(availableWidgets);
-        
         var i,
             playerWidgets = []; // becomes an array of arrays... player # -> array of player widgets
         
         // Unique set of non-duplicated widgets for each player
         for (i = 0; i < numPlayers; i++) {
-            _.shuffle(availableWidgets);
+            availableWidgets = _.shuffle(availableWidgets);
             
             playerWidgets[i] = [];
             
             _.each(availableWidgets.slice(0, widgetsPerPlayer), function (settings) {
                 playerWidgets[i].push(new Widget(settings));
             });
+            
+            console.log('playerWidgets', playerWidgets[i]);
         }
         
         return playerWidgets;

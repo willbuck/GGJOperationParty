@@ -14,7 +14,7 @@ var Class = require('./Class.js'),
         
         gameTimer: null,
         
-        widgetsPerPlayer: 4,
+        widgetsPerPlayer: 1,
         
         // These are all the current Widgets in this game
         widgets: {}, // by uid
@@ -25,6 +25,8 @@ var Class = require('./Class.js'),
         // These are the assigned tasks that need to be completed now
         nowTasks: [],
         
+        gameover: false,
+        
         init: function (settings) {
             this._super(settings);
             
@@ -32,7 +34,7 @@ var Class = require('./Class.js'),
             
             this.assignWidgets();
             
-            this.createTasks(_.size(this.players)); // TODO... how many tasks?
+            this.createTasks(4 * _.size(this.players)); // TODO... how many tasks?
             
             this.assignTasks();
             
@@ -94,11 +96,18 @@ var Class = require('./Class.js'),
                 this.nowTasks.push(task);
                 
                 console.log('patient needs: ', task);
+                
+            } else if (this.laterTasks.length == 0) {
+                player.setTask({empty: true});
             }
         },
         
         widgetChanged: function (data) {
             console.log('widgetChanged', data);
+            
+            if (this.gameover) {
+                return;
+            }
             
             _.each(this.nowTasks, function (task, index) {
                 // Is task resolved?
@@ -124,12 +133,18 @@ var Class = require('./Class.js'),
             console.log('players have won!!');
             
             this.lobby.emit('win');
+            
+            this.destroy();
         },
         
         lose: function () {
             console.log('FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!');
             
             this.lobby.emit('lose');
+            
+            this.gameover = true;
+            
+            this.destroy();
         },
         
         // Call when you are going to destroy a game
