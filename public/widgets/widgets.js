@@ -113,6 +113,8 @@ var preload,
 			'syringe-bg.png',
 			'syringe-fg.png',
 			'syringe-plunger.png',
+			'plug-artery-bg.png',
+			'plug-artery-fg.png',
 		], oncomplete);
 	}
 	
