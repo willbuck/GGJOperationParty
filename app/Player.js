@@ -24,8 +24,8 @@ var Class = require('./Class.js'),
         },
         
         setName: function () {
-            var titles = ['Doctor', 'Nurse', 'Surgeon', 'Tech', 'Intern', 'Student'],
-                surnames = ['Johnson', 'Buck', 'Lembcke', 'Smith', 'Miyamoto', 'Kim', 'Anderson', 'Livingston', 'Roboto', 'Octopus', 'Doom', 'Goodandsexy', 'Spaceman', 'Mario', 'Robotnic', 'Manatee'];
+            var titles = ['Doctor', 'Nurse', 'Surgeon', 'Tech', 'Intern', 'Student', 'Mecha'],
+                surnames = ['Johnson', 'Buck', 'Lembcke', 'Smith', 'Miyamoto', 'Kim', 'Anderson', 'Livingston', 'Roboto', 'Octopus', 'Doom', 'Goodandsexy', 'Spaceman', 'Mario', 'Robotnic', 'Manatee', 'Cleveland', 'Huxtable', 'Shepherd', 'Burke'];
             
             this.name = _.shuffle(titles)[0] + ' ' + _.shuffle(surnames)[0];
         },
