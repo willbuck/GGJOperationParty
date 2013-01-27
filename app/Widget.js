@@ -45,11 +45,11 @@ var Class = require('./Class.js'),
             {type: 'pump', name: 'Lungs', action: 'Pump'},
             {type: 'chestIncision', name: 'Chest', action: 'Sew'},
             {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},
+            {type: 'buttonMomentary', name: 'Gas', action: 'Vent'}/*,
             {type: 'buttonPushOn', name: 'Heart', action: 'Pump'},
             {type: 'buttonPushOn', name: 'Food', action: 'Digest'},
             {type: 'buttonPushOn', name: 'Funny Bone', action: 'Tickle'},
-            {type: 'buttonPushOn', name: 'Gas', action: 'Vent'},
-            {type: 'buttonPushOn', name: 'Toes', action: 'Twinkle'}
+            {type: 'buttonPushOn', name: 'Toes', action: 'Twinkle'}*/
         ];
     
     

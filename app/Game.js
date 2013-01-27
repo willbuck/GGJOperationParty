@@ -94,6 +94,9 @@ var Class = require('./Class.js'),
                 this.nowTasks.push(task);
                 
                 console.log('patient needs: ', task);
+                
+            } else if (this.laterTasks.length == 0) {
+                player.setTask({empty: true});
             }
         },
         
@@ -124,12 +127,16 @@ var Class = require('./Class.js'),
             console.log('players have won!!');
             
             this.lobby.emit('win');
+            
+            this.destroy();
         },
         
         lose: function () {
             console.log('FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!');
             
             this.lobby.emit('lose');
+            
+            this.destroy();
         },
         
         // Call when you are going to destroy a game
