@@ -1,4 +1,4 @@
-function setupDial(widget){
+widgetFactories.dial = function(widget){
 	widget.value = 0;
 	
 	function draw(angle){

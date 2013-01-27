@@ -1,4 +1,4 @@
-function setupSlider(widget){
+widgetFactories.slider = function(widget){
 	widget.value = 0;
 	widget.x = 150;
 	widget.minY = 50;

@@ -4,6 +4,8 @@ widgetFactories.chestIncision = function setupChestIncision(widget){
     widget.name = 'Chest';
     
 	var zipper = 150;
+	var zipperMin = 50;
+	var zipperMax = 250;
 	
 	function draw(){
 		var ctx = widget.ctx;
@@ -42,17 +44,21 @@ widgetFactories.chestIncision = function setupChestIncision(widget){
 	
 	widget.canvas.onmouseup = function(){
 		dragging = false;
+		
+		if(zipper == zipperMin){
+			widget.valueChanged('Sew');
+		}
+		
+		if(zipper == zipperMax){
+			widget.valueChanged('Mangle');
+		}
 	}
 	
 	widget.canvas.onmousemove = function(e){
 		if(!dragging) return;
 		
 		var y = e.offsetY;
-		zipper = y;
-		
-		if (zipper == 300) {
-		    widget.valueChanged('Sew');
-		}
+		zipper = Math.clamp(y, zipperMin, zipperMax);
 		
 		draw();
 	}

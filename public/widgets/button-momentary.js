@@ -1,4 +1,4 @@
-function setupButtonMomentary(widget){
+widgetFactories.buttonMomentary = function(widget){
 	widget.ctx.drawImage(widget.images['tmp-button-up.png'], 0, 0);
 	
 	widget.canvas.onmousedown = function(e){
