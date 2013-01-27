@@ -14,11 +14,12 @@ var preload,
     
     widgetInputScale = 1,
     
-    createWidget = function (canvas, type) {
+    createWidget = function (canvas, widgetData) {
         setupWidget(canvas, function (widget) {
-            (widgetFactories[type])(widget);
+            (widgetFactories[widgetData.type])(widget);
             
             widget.valueChanged = function (value) {
+                console.log('Widget type: ' + widget.type + ' changing to: ' + value);
                 socket.emit('widgetChanged', {
                     type: widget.type,
                     name: widget.name,
@@ -90,9 +91,9 @@ var preload,
 		images = preloadImages([
 			'red-button.png',
 			'green-button.png',
-			'tmp-bellows.png',
-			'tmp-chest-bg.png',
-			'tmp-chest-fg.png',
+			'bellows.png',
+			'chest-bg.png',
+			'chest-fg.png',
 			'tmp-button-up.png',
 			'tmp-button-down.png',
 			'tmp-dial-bg.png',
@@ -102,6 +103,13 @@ var preload,
 			'red-pill.png',
 			'blue-pill.png',
 			'green-pill.png',
+			'Defib0.png',
+			'DefibButton.png',
+			'DefibLevel.png',
+			'PickNose0.png',
+			'PickNose1.png',
+			'PumpHeart0.png',
+			'PumpHeart1.png',
 		], oncomplete);
 	}
 	

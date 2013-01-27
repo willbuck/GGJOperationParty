@@ -10,22 +10,25 @@ widgetFactories.chargeDefibrilator = function setupChargeDefibrilator(widget){
 		var ctx = widget.ctx;
 		
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
-		ctx.fillStyle = "black";
-		ctx.fillRect(0, 0, 300, 300);
+		ctx.clearRect(0, 0, 300, 300);
+//		ctx.fillStyle = "red";
+//		ctx.fillRect(0, 0, 300, 300);
+//		
+//		ctx.fillStyle = "green";
+//		var height = charge*300;
+//		ctx.fillRect(0, 300 - height, 300, height);
 		
-		ctx.fillStyle = "white";
-		var height = charge*300;
-		ctx.fillRect(0, 300 - height, 300, height);
+		ctx.drawImage(widget.images['Defib0.png'], 0, 0)
 		
-		var button = widget.images[buttonState ? 'red-button.png' : 'green-button.png'];
-		ctx.setTransform(1, 0, 0, 1, 150, 150)
-		ctx.drawImage(button, -button.width/2, -button.height/2);
+		if(buttonState){
+			var button = widget.images['DefibButton.png'];
+			ctx.setTransform(1, 0, 0, 1, 191, 144)
+			ctx.drawImage(button, -button.width/2, -button.height/2);
+		}
 		
-		ctx.fillStyle = "black";
-		var size = 30;
-		ctx.font = size + "px sans-serif";
-		var txt = "Defibrilator";
-		ctx.fillText(txt, -ctx.measureText(txt).width/2, size/2);
+		var meter = widget.images['DefibLevel.png'];
+		ctx.setTransform(1, 0, 0, 1, 107, 144)
+		ctx.drawImage(meter, -meter.width/2, -meter.height/2, meter.width, charge*meter.height);
 	}
 	
 	var timeout = null;
