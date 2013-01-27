@@ -117,6 +117,9 @@ var preload,
 			'plug-artery-fg.png',
 			'Feet0.png',
 			'Feet2.png',
+			'clear-bg.png',
+			'clear-fg1.png',
+			'clear-fg2.png',
 		], oncomplete);
 	}
 	
