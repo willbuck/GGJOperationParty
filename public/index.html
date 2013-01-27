@@ -55,6 +55,7 @@
 		<div class="statusArea">
 			<p>Game Status</p>
             <p>A Heart Rate Monitor 'Status Bar' goes here to show how the game is going</p>
+            <img src="images/heartbeat.gif" />
             <!--<p>Aligned to the bottom, we will show the 'action' you need performed. It will refresh every so often, or when someone else complete it</p>-->
 		</div>
 		<div class="playArea">
@@ -64,10 +65,17 @@
             <div class="widget" id="widget3"></div>
             <div class="widget" id="widget4"></div>
 		</div>
-	</div><!-- container -->	
+	</div><!-- container -->
 
-	
+    <audio id="heartbeatAudio" preload loop>
+        <source src="/audio/GGJ13_Theme.mp3" type='audio/mpeg; codecs="mp3"'>
+        <source src="/audio/GGJ13_Theme.wav" type='audio/wav; codecs="wav"'>
+    </audio>
+
     <!-- Post-load js of ours -->
+    <!-- Audio helper -->
+    <script src="/js/internal/audio.js"></script>
+
     <!-- Handlebars compiled templates-->
     <script src="/js/internal/templates/templates.js"></script>
 
