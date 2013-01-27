@@ -2,17 +2,19 @@ var socket = io.connect(window.location.hostname);
 var GameStates = (function(socket) {
     var myLobby,
         joinGame = function(lobbyName) {
-        // Join a named lobby
-        console.log('Joining game: ' + lobbyName);
-        socket.emit('join', {lobby: lobbyName});
-        myLobby = lobbyName;
-    };
+            // Join a named lobby
+            console.log('Joining game: ' + lobbyName);
+            socket.emit('join', {lobby: lobbyName});
+            myLobby = lobbyName;
+        };
+    
     return {
         loadStartScreen: function (lobbies) {
             TemplateUtil.loadGameScreen('selectGameScreen', {lobbies: lobbies});
             $('.modalDialog').addClass('active');
             $('.gameSelect').on('touch click', function(e) {
                 console.log('Selecting game: ' + e.toElement.value);
+                $('.gameSelect').hide();
                 joinGame(e.toElement.value);
             });
         },

@@ -60,7 +60,10 @@ var SocketHandlers = (function() {
                 $('#task').html('');
                 
             } else {
-                $('#task').html(data.action + ' ' + data.name);
+                $('#task').html('');
+                setTimeout(function () {
+                    $('#task').html(data.action + ' ' + data.name);
+                }, 1000);
             }
             
             // Testing: auto-play the next move to win

@@ -14,7 +14,7 @@ var Class = require('./Class.js'),
         
         gameTimer: null,
         
-        widgetsPerPlayer: 4,
+        widgetsPerPlayer: 1,
         
         // These are all the current Widgets in this game
         widgets: {}, // by uid
