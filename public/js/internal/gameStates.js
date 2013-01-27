@@ -37,6 +37,12 @@ var GameStates = (function(socket) {
         },
         playGame: function () {
             $('.modalDialog').removeClass('active');
+        },
+        restartGame: function(lobbies) {
+            // TODO need to refresh lobbies list here
+            setTimeout(function() {
+                GameStates.loadStartScreen(lobbies);
+            }, 4000); // About 4 seconds to start a new game?
         }
     }
 })(socket);

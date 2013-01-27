@@ -3,6 +3,7 @@ var SocketHandlers = (function() {
     console.log('Loading Socket.io connection');
 
     var GameData = {
+            lobbies: [],
             joined : false,
             players : []
         };
@@ -13,6 +14,7 @@ var SocketHandlers = (function() {
         if (GameData.joined) {
             return;
         }
+        GameData.lobbies = data.lobbies;
         
         GameStates.loadStartScreen(data.lobbies);
 
@@ -73,14 +75,14 @@ var SocketHandlers = (function() {
         
         socket.on('win', function (data) {
             $('#task').html('Patient has been saved!');
-            
-            // TODO: go back to lobby
+
+            GameStates.restartGame(GameData.lobbies);
         });
         
         socket.on('lose', function (data) {
             $('#task').html('Call it. Patient deceased.');
-            
-            // TODO: go back to lobby
+
+            GameStates.restartGame(GameData.lobbies);
         });
         
         socket.on('disconnect', function () {
