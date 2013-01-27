@@ -18,6 +18,8 @@ widgetFactories.pills = function(widget){
 			{x:50, y:150},
 			{x:250, y:150},
 		];
+		
+		draw();
 	}
 	
 	function draw(){
@@ -59,11 +61,30 @@ widgetFactories.pills = function(widget){
 	var timeout = null;
 	widget.canvas.onmouseup = function(e){
 		if(timeout) clearTimeout(timeout);
-		timeout = setTimeout(resetPills, 3.0*1e3);
+		timeout = setTimeout(resetPills, 3*1e3);
 		
 		for(var i=0; i<redPills.length; i++){
 			if(checkPill(redPills[i], e)){
 				redPills.splice(i, 1);
+				if(redPills.length == 0) widget.valueChanged("red pills");
+				draw();
+				return
+			} 
+		}
+		
+		for(var i=0; i<bluePills.length; i++){
+			if(checkPill(bluePills[i], e)){
+				bluePills.splice(i, 1);
+				if(bluePills.length == 0) widget.valueChanged("blue pills");
+				draw();
+				return
+			} 
+		}
+		
+		for(var i=0; i<greenPills.length; i++){
+			if(checkPill(greenPills[i], e)){
+				greenPills.splice(i, 1);
+				if(greenPills.length == 0) widget.valueChanged("green pills");
 				draw();
 				return
 			} 
@@ -71,5 +92,4 @@ widgetFactories.pills = function(widget){
 	}
 	
 	resetPills();
-	draw();
 }
