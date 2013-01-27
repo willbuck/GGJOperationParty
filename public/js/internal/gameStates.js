@@ -1,3 +1,12 @@
+// By default the widgets are at half size
+widgetInputScale = $(window).height() >= 700 ? 1 : 2;
+
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        window.scrollTo(0, 0);
+    }, 1);
+}, false);
+
 var socket = io.connect(window.location.hostname);
 var GameStates = (function(socket) {
     var myLobby,

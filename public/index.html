@@ -19,8 +19,10 @@
 	<!-- CSS
   ================================================== -->
 	<link rel="stylesheet" href="stylesheets/base.css">
+	<!--
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
+	-->
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="stylesheets/game.css">
@@ -53,9 +55,10 @@
         </div>
 
 		<div class="statusArea">
-            <img src="images/HeartBeat.gif" />
-            
-            <p id="task"></p>
+		</div>
+		
+		<div class="taskArea">
+		    <p id="task"></p>
 		</div>
 		
 		<div class="playArea">
@@ -64,6 +67,9 @@
             <div class="widget" id="widget3"></div>
             <div class="widget" id="widget4"></div>
 		</div>
+		
+		<!-- so we can hide location bar on smart phones -->
+		<p class="scrollCruft">&nbsp;</p>
 	</div><!-- container -->
 
     <audio id="heartbeatAudio" preload loop>
