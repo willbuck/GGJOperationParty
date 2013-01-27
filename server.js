@@ -4,7 +4,7 @@ var express = require('express'),
     _ = require('underscore'),
     io = require('socket.io').listen(app),
     Lobby = require('./app/Lobby.js'),
-    lobbies = {'test': new Lobby({'name': 'test', 'io': io})},
+    lobbies = {'test game': new Lobby({'name': 'test game', 'io': io})},
     NODE_ENV = process.env.NODE_ENV || 'dev';
 
 // app.use(express.cookieParser());

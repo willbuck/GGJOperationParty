@@ -11,7 +11,7 @@ var Class = require('./Class.js'),
         
         name: null,
         
-        players: {},
+        players: {}, // by uid
         
         readyPlayers: 0,
         
@@ -87,7 +87,7 @@ var Class = require('./Class.js'),
             this.players = {};
             
             if (this.game) {
-                this.game.end();
+                this.game.destroy();
             }
             this.game = null;
             
@@ -99,7 +99,11 @@ var Class = require('./Class.js'),
             
             this.open = false;
             
-            this.game = new Game({'lobby': this, 'players': this.players});
+            this.game = new Game({'io': this.io, 'lobby': this, 'players': this.players});
+            
+            _.each(this.players, function (player) {
+                player.setGame(this.game);
+            }.bind(this));
         },
         
         emit: function (eventName, eventData) {
