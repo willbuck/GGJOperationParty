@@ -58,3 +58,19 @@
 /*}*/
 
 /*.close:hover { background: #00d9ff; }*/
+
+.waitingList {
+	overflow: hidden;
+}
+
+.waitingList li {
+	float: left;
+	margin-right: 2.5em;
+	padding: 4px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+#waitingMsg {
+	display: none;
+}

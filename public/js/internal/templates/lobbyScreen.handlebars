@@ -1,8 +1,9 @@
 <h3>Welcome to Game: {{lobby.name}}</h3>
 <p>Players currently in lobby:</p>
-<ul>
+<ul class="waitingList">
     {{#each players}}
-        <span class="waiting">{{this}}</span>
+        <li class="waiting">{{this}}</li>
     {{/each}}
 </ul>
 <input type="button" class="startGame" value="I'm Ready!!">
+<p id="waitingMsg">Waiting...</p>
