@@ -45,9 +45,7 @@ widgetFactories.pump = function setupPump(widget){
 	
 	var dragging = false;
 	widget.canvas.onmousedown = function(e){
-		if(Math.abs(150 - e.offsetX) < 80 && Math.abs(e.offsetY - topEdge) < 40){
-			dragging = true;
-		}
+		dragging = true;
 	}
 	
 	widget.canvas.onmouseup = function(){
