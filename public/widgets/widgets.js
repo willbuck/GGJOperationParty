@@ -43,6 +43,9 @@ var setupWidget;
 		images = preloadImages([
 			'red-button.png',
 			'green-button.png',
+			'tmp-bellows.png',
+			'tmp-chest-bg.png',
+			'tmp-chest-fg.png',
 		], oncomplete);
 	}
 	
@@ -64,8 +67,8 @@ var setupWidget;
 		function convertTouch(touch){
 			var offset = $(canvas).offset();
 			return {
-				offsetX:(touch.clientX - offset.left)*2,
-				offsetY:(touch.clientY - offset.top)*2
+				offsetX:(touch.clientX - offset.left)*1,
+				offsetY:(touch.clientY - offset.top)*1
 			}
 		}
 		
