@@ -61,6 +61,6 @@ function program1(depth0,data) {
   stack2 = {};
   stack1 = helpers.each.call(depth0, stack1, {hash:stack2,inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</ul>";
+  buffer += "\n</ul>\n\n<div class=\"modalFooter\">\n    <p>For the 2013 GGJ - Minneapolis IGDATC Chapter.</p>\n    <p>By Zachary Johnson, Scott Lembcke, and Will Buck.</p>\n    <p>Artwork by Barry McMahon.</p>\n</div>";
   return buffer;});
 })();
