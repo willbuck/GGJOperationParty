@@ -1,7 +1,7 @@
 widgetFactories.clear = function setupPump(widget){
     
-    widget.type = 'slide';
-    widget.name = 'clear';
+    widget.type = 'clear';
+    widget.name = 'Patient';
     
 	var charge = 0.0;
 	var slide = 0;
@@ -33,7 +33,7 @@ widgetFactories.clear = function setupPump(widget){
 			
 			if(charge == 1){
 				charge = 0;
-				widget.valueChanged('Pump');
+				widget.valueChanged('Clear');
 			}
 			
 			draw();
