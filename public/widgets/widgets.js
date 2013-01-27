@@ -70,6 +70,9 @@ var preload,
 			'tmp-dial.png',
 			'tmp-slider-bg.png',
 			'tmp-slider.png',
+			'red-pill.png',
+			'blue-pill.png',
+			'green-pill.png',
 		], oncomplete);
 	}
 	

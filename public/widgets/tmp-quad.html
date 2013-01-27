@@ -7,6 +7,10 @@
 	<canvas width="300" height="300" id="canvas3"></canvas>
 	<canvas width="300" height="300" id="canvas4"></canvas>
 </div>
+<div>
+	<canvas width="300" height="300" id="canvas5"></canvas>
+	<canvas width="300" height="300" id="canvas6"></canvas>
+</div>
 
 <script src="/js/external/zepto.js"></script>
 <script src="widgets.js"></script>
@@ -17,12 +21,15 @@
 <script src="button-push-on.js"></script>
 <script src="dial.js"></script>
 <script src="slider.js"></script>
+<script src="pills.js"></script>
 
 <script>
 	preload(function(){
-		setupWidget(document.getElementById('canvas1'), setupButtonPushOn);
-		setupWidget(document.getElementById('canvas2'), setupDial);
-		setupWidget(document.getElementById('canvas3'), setupSlider);
-		setupWidget(document.getElementById('canvas4'), setupButtonMomentary);
+		setupWidget(document.getElementById('canvas1'), widgetFactories.pills);
+		setupWidget(document.getElementById('canvas2'), widgetFactories.slider);
+		setupWidget(document.getElementById('canvas3'), widgetFactories.chestIncision);
+		setupWidget(document.getElementById('canvas4'), widgetFactories.buttonMomentary);
+		setupWidget(document.getElementById('canvas5'), widgetFactories.buttonPushOn);
+		setupWidget(document.getElementById('canvas6'), widgetFactories.dial);
 	});
 </script>

@@ -29,7 +29,7 @@ SPecific widgets to implement:
 * -- Press and hold to plug the artery.
 * -- Pump a bellows with a meter.
 * Rhythmic tapping for CPR.
-* Chest incision.
+* -- Chest incision.
 * Tap Pills.
 * Slide and hold for "Clear"
 * Rub ointment.

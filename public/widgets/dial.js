@@ -1,4 +1,4 @@
-function setupDial(widget){
+widgetFactories.dial = function(widget){
 	widget.value = 0;
 	
 	function draw(angle){
@@ -36,7 +36,7 @@ function setupDial(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			console.log("value set to: " + value);
+			widget.valueChanged("dial set to " + value);
 			
 			draw(value*quant);
 		}
