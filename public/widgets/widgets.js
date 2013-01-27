@@ -152,7 +152,7 @@ var preload,
 			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
-				if(touchID === true || touch.identifier = touchID){
+				if (touchID === true || touch.identifier == touchID){
 					if(canvas.onmousemove) canvas.onmousemove(convertTouch(touch));
 					break;
 				}
@@ -163,7 +163,7 @@ var preload,
 			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
-				if(touchID === true || touch.identifier = touchID){
+				if (touchID === true || touch.identifier == touchID){
 					var converted = convertTouch(touch);
 					if(canvas.onmouseup) canvas.onmouseup(converted);
 					if(canvas.onclick) canvas.onclick(converted);
