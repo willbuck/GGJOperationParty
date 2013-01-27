@@ -1,3 +1,11 @@
+Math.clamp = function(t, min, max){
+	return Math.min(Math.max(min, t), max);
+}
+
+Math.clamp01 = function(t){
+	return Math.clamp(t, 0, 1);
+}
+
 var preload;
 var setupWidget;
 
@@ -7,7 +15,7 @@ var setupWidget;
 		
 		function loadImg(url){
 			var img = new Image();
-			img.src = url;
+			img.src = "/widgets/" + url;
 			
 			img.onload = function(){
 				images[url] = img;
@@ -33,13 +41,8 @@ var setupWidget;
 	
 	preload = function(oncomplete){
 		images = preloadImages([
-			'/widgets/tmp-button-up.png',
-			'/widgets/tmp-button-down.png',
-			'/widgets/tmp-dial-bg.png',
-			'/widgets/tmp-dial.png',
-			'/widgets/tmp-slider-bg.png',
-			'/widgets/tmp-slider.png',
-			'/widgets/tmp-bellows.png',
+			'red-button.png',
+			'green-button.png',
 		], oncomplete);
 	}
 	
@@ -61,8 +64,8 @@ var setupWidget;
 		function convertTouch(touch){
 			var offset = $(canvas).offset();
 			return {
-				offsetX:touch.clientX - offset.left,
-				offsetY:touch.clientY - offset.top,
+				offsetX:(touch.clientX - offset.left)*2,
+				offsetY:(touch.clientY - offset.top)*2
 			}
 		}
 		
@@ -98,6 +101,27 @@ var setupWidget;
 			}
 		}
 		
+		widget.valueChanged = function(value){
+			console.log(value);
+		}
+		
 		setupComplete(widget)
+		
+		function getTime(){
+			return (new Date()).getTime()*1e-3;
+		}
+		
+		var lastTime = getTime();
+		var timeout = null;
+		function update(){
+			var time = getTime();
+			var dt = time - lastTime;
+			widget.update(dt);
+			timeout = setTimeout(update, 33);
+			
+			lastTime = time;
+		}
+		
+		if(widget.update) setTimeout(update, 0);
 	}
 })();

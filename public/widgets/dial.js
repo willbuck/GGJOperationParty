@@ -13,7 +13,7 @@ function setupDial(widget){
 	
 	var dragging = false;
 	widget.canvas.onmousedown = function(e){
-		var radius = 100;
+		var radius = 150;
 		var x = e.offsetX - 150;
 		var y = e.offsetY - 150;
 		if(x*x + y*y < radius*radius){

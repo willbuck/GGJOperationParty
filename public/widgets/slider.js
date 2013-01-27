@@ -26,7 +26,7 @@ function setupSlider(widget){
 	
 	var dragging = false;
 	widget.canvas.onmousedown = function(e){
-		var radius = 20;
+		var radius = 40;
 		var pos = sliderPos();
 		
 		var x = e.offsetX - pos.x;
