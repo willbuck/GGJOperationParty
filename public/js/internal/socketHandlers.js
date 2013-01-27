@@ -38,7 +38,11 @@ var SocketHandlers = (function() {
         });
 
         socket.on('task', function (data) {
-            console.log('Task came with data: ' + data);
+            console.log('Task came with data: ', data);
+            
+            // TODO: don't auto-play the next move, obviously
+            data.value = data.requiredValue;
+            socket.emit('widgetChanged', data);
         });
 
         socket.on('loadWidgets', function(data) {

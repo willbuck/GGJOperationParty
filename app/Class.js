@@ -2,6 +2,7 @@ var SharedClass = require('../public/shared/Class.js'),
     
     _ = require('underscore'),
     
+    // Should be unique across all classes
     lastUID = 0,
     
     ServerClass = SharedClass.extend({
