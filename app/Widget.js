@@ -37,6 +37,9 @@ var Class = require('./Class.js'),
             if (this.type == 'pills') {
                 var colors = ['Red', 'Green', 'Blue'];
                 data.action = 'Take ' + colors[Math.floor(Math.random() * colors.length)];
+                
+            } else if (this.type == 'syringe') {
+                data.action = 'Inject ' + (1 + Math.floor(Math.random() * 4)) + 'cc';
             }
             
             data.requiredValue = data.action;
@@ -54,6 +57,7 @@ var Class = require('./Class.js'),
             {type: 'dial', name: 'Morphine', action: 'dial set to 3'},
             {type: 'slider', name: 'Patient Safety', action: 'slider to 1'},
             {type: 'pickNose', name: 'Nose', action: 'Pick'},
+            {type: 'syringe', name: 'Placebo', action: 'Inject 10cc'},
             {type: 'pills', name: 'Pills', action: 'Take Green'}/*,
             {type: 'buttonPushOn', name: 'Heart', action: 'Pump'},
             {type: 'buttonPushOn', name: 'Food', action: 'Digest'},
