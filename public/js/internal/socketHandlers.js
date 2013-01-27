@@ -73,10 +73,14 @@ var SocketHandlers = (function() {
         
         socket.on('win', function (data) {
             $('#task').html('Patient has been saved!');
+            
+            // TODO: go back to lobby
         });
         
         socket.on('lose', function (data) {
             $('#task').html('Call it. Patient deceased.');
+            
+            // TODO: go back to lobby
         });
         
         socket.on('disconnect', function () {
