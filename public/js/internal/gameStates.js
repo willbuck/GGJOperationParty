@@ -25,6 +25,7 @@ var GameStates = (function(socket) {
                 socket.emit('ready');
                 $('.modalDialog').removeClass('active');
                 TemplateUtil.loadWidget(setupButtonPushOn);
+                HeartBeatAudio.play();
             });
         }
     }
