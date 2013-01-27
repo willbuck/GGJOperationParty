@@ -16,7 +16,7 @@ function writeStdErr(data) {
 function restart(serverProcess) {
     restarting = true;
     util.debug('Restarting...');
-    child_process.exec('./node_modules/handbars/bin/handlebars public/js/internal/templates/ > public/js/internal/templates/templates.js');
+    child_process.exec('./node_modules/handlebars/bin/handlebars public/js/internal/templates/ > public/js/internal/templates/templates.js');
     try {
         serverProcess.kill();
     } catch (e) {
