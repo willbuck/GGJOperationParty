@@ -1,4 +1,8 @@
 widgetFactories.pills = function(widget){
+    
+    widget.type = 'pills';
+    widget.name = 'Pills ';
+    
 	var redPills, bluePills, greenPills;
 	function resetPills(){
 		redPills = [];
