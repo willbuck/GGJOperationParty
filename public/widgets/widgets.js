@@ -12,6 +12,8 @@ var preload,
     
     widgetFactories = {},
     
+    widgetInputScale = 1,
+    
     createWidget = function (canvas, type) {
         setupWidget(canvas, function (widget) {
             (widgetFactories[type])(widget);
@@ -94,8 +96,8 @@ var preload,
 		function convertTouch(touch){
 			var offset = $(canvas).offset();
 			return {
-				offsetX:(touch.clientX - offset.left)*1,
-				offsetY:(touch.clientY - offset.top)*1
+				offsetX:(touch.clientX - offset.left)*widgetInputScale,
+				offsetY:(touch.clientY - offset.top)*widgetInputScale
 			}
 		}
 		
