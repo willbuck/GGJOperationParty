@@ -4,6 +4,7 @@ function setupChargeDefibrilator(widget){
 	
 	function draw(){
 		var ctx = widget.ctx;
+		
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.fillStyle = "black";
 		ctx.fillRect(0, 0, 300, 300);

@@ -25,9 +25,9 @@ Some ideas to go with a medical theme depending on how wacky we want to go:
 
 
 SPecific widgets to implement:
-* Press and hold to charge defibrilator.
-* Press and hold to plug the artery.
-* Pump a bellows with a meter.
+* -- Press and hold to charge defibrilator.
+* -- Press and hold to plug the artery.
+* -- Pump a bellows with a meter.
 * Rhythmic tapping for CPR.
 * Chest incision.
 * Tap Pills.
