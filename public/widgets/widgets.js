@@ -33,13 +33,13 @@ var setupWidget;
 	
 	preload = function(oncomplete){
 		images = preloadImages([
-			'tmp-button-up.png',
-			'tmp-button-down.png',
-			'tmp-dial-bg.png',
-			'tmp-dial.png',
-			'tmp-slider-bg.png',
-			'tmp-slider.png',
-			'tmp-bellows.png',
+			'/widgets/tmp-button-up.png',
+			'/widgets/tmp-button-down.png',
+			'/widgets/tmp-dial-bg.png',
+			'/widgets/tmp-dial.png',
+			'/widgets/tmp-slider-bg.png',
+			'/widgets/tmp-slider.png',
+			'/widgets/tmp-bellows.png',
 		], oncomplete);
 	}
 	

@@ -7,7 +7,7 @@ var GameStates = (function(socket) {
     };
     return {
         loadStartScreen: function() {
-            loadGameScreen('selectGameScreen', {lobbies: [{gameID: 1, name: 'test'}]});
+            TemplateUtil.loadGameScreen('selectGameScreen', {lobbies: [{gameID: 1, name: 'test'}]});
             $('.modalDialog').addClass('active');
             $('.gameSelect').on('touch click', function(e) {
                 console.log('Selecting game: ' + e.toElement.value);
@@ -15,7 +15,7 @@ var GameStates = (function(socket) {
             });
         },
         loadLobbyScreen: function(players) {
-            loadGameScreen('lobbyScreen', {
+            TemplateUtil.loadGameScreen('lobbyScreen', {
                 lobby: {name: 'test'},
                 players: players
             });
@@ -24,6 +24,7 @@ var GameStates = (function(socket) {
                 // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
                 socket.emit('ready');
                 $('.modalDialog').removeClass('active');
+                TemplateUtil.loadWidget(setupButtonPushOn);
             });
         }
     }

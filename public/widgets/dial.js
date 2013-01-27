@@ -3,12 +3,12 @@ function setupDial(widget){
 	
 	function draw(angle){
 		widget.ctx.setTransform(1, 0, 0, 1, 0, 0)
-		widget.ctx.drawImage(widget.images['tmp-dial-bg.png'], 0, 0);
+		widget.ctx.drawImage(widget.images['/widgets/tmp-dial-bg.png'], 0, 0);
 		
 		var c = Math.cos(angle);
 		var s = Math.sin(angle);
 		widget.ctx.setTransform(c, s, -s, c, 150, 150)
-		widget.ctx.drawImage(widget.images['tmp-dial.png'], -150, -150);
+		widget.ctx.drawImage(widget.images['/widgets/tmp-dial.png'], -150, -150);
 	}
 	
 	var dragging = false;

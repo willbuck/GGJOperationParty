@@ -1,5 +1,5 @@
 function setupPump(widget){
-	var pump = widget.images['tmp-bellows.png'];
+	var pump = widget.images['/widgets/tmp-bellows.png'];
 	
 	var bottomEdge = 250;
 	var topEdge = bottomEdge - pump.height;
@@ -10,7 +10,7 @@ function setupPump(widget){
 	
 	function draw(){
 		widget.ctx.setTransform(1, 0, 0, 1, 0, 0)
-		widget.ctx.drawImage(widget.images['tmp-slider-bg.png'], 0, 0);
+		widget.ctx.drawImage(widget.images['/widgets/tmp-slider-bg.png'], 0, 0);
 		
 		var scale = (bottomEdge - topEdge)/pump.height;
 		widget.ctx.setTransform(1, 0, 0, scale, 150, bottomEdge);
