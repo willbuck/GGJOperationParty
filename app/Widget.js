@@ -54,20 +54,20 @@ var Class = require('./Class.js'),
     
     
     Widget.getRandomSet = function (numPlayers, widgetsPerPlayer) {
-        _.shuffle(availableWidgets);
-        
         var i,
             playerWidgets = []; // becomes an array of arrays... player # -> array of player widgets
         
         // Unique set of non-duplicated widgets for each player
         for (i = 0; i < numPlayers; i++) {
-            _.shuffle(availableWidgets);
+            availableWidgets = _.shuffle(availableWidgets);
             
             playerWidgets[i] = [];
             
             _.each(availableWidgets.slice(0, widgetsPerPlayer), function (settings) {
                 playerWidgets[i].push(new Widget(settings));
             });
+            
+            console.log('playerWidgets', playerWidgets[i]);
         }
         
         return playerWidgets;

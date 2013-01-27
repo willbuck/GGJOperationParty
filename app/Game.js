@@ -25,6 +25,8 @@ var Class = require('./Class.js'),
         // These are the assigned tasks that need to be completed now
         nowTasks: [],
         
+        gameover: false,
+        
         init: function (settings) {
             this._super(settings);
             
@@ -32,7 +34,7 @@ var Class = require('./Class.js'),
             
             this.assignWidgets();
             
-            this.createTasks(_.size(this.players)); // TODO... how many tasks?
+            this.createTasks(4 * _.size(this.players)); // TODO... how many tasks?
             
             this.assignTasks();
             
@@ -103,6 +105,10 @@ var Class = require('./Class.js'),
         widgetChanged: function (data) {
             console.log('widgetChanged', data);
             
+            if (this.gameover) {
+                return;
+            }
+            
             _.each(this.nowTasks, function (task, index) {
                 // Is task resolved?
                 if (task.type == data.type && task.name == data.name && task.requiredValue == data.value) {
@@ -135,6 +141,8 @@ var Class = require('./Class.js'),
             console.log('FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!');
             
             this.lobby.emit('lose');
+            
+            this.gameover = true;
             
             this.destroy();
         },
