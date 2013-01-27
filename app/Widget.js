@@ -32,9 +32,14 @@ var Class = require('./Class.js'),
         getTask: function () {
             var data = this.getData();
             
-            // TODO: come up with a required value
             // NOTE: can't pre-generate all tasks if we want to store current value / required value in Widget... we'd either need to generate-as-we-go or store the task states here in the widget
-            data.requiredValue = this.action;
+            
+            if (this.type == 'pills') {
+                var colors = ['Red', 'Green', 'Blue'];
+                data.action = 'Take ' + colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            data.requiredValue = data.action;
             
             return data;
         }
@@ -47,7 +52,8 @@ var Class = require('./Class.js'),
             {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},
             {type: 'buttonMomentary', name: 'Gas', action: 'Vent'},
             {type: 'dial', name: 'Morphine', action: 'dial set to 3'},
-            {type: 'slider', name: 'Patient Safety', action: 'slider to 1'}/*,
+            {type: 'slider', name: 'Patient Safety', action: 'slider to 1'},
+            {type: 'pills', name: 'Pills', action: 'Take Green'}/*,
             {type: 'buttonPushOn', name: 'Heart', action: 'Pump'},
             {type: 'buttonPushOn', name: 'Food', action: 'Digest'},
             {type: 'buttonPushOn', name: 'Funny Bone', action: 'Tickle'},

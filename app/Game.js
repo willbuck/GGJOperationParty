@@ -125,6 +125,8 @@ var Class = require('./Class.js'),
                     if (this.laterTasks.length + this.nowTasks.length == 0) {
                         this.win();
                     }
+                } else {
+                    console.log('not matched', task, data, task.type == data.type, task.name == data.name, task.requiredValue == data.value);
                 }
             }.bind(this));
         },
