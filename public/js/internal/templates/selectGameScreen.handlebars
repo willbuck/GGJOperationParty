@@ -1,0 +1,7 @@
+<h2>Welcome to Operation: Party!</h2>
+<h3>Select a Lobby:</h3>
+<ul>
+{{#each lobbies}}
+    <li><input class="gameSelect" type="button" id="{{this.gameID}}" value="{{this.name}}"/></li>
+{{/each}}
+</ul>

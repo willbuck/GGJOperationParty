@@ -3,9 +3,14 @@ var loadWidget = function(widgetName, widgetPosition, widgetData) {
     $(widgetPosition).html(template(widgetData));
 };
 
+var loadGameScreen = function(template, data) {
+    console.log('Loading game screen: ' + template);
+    var template = Handlebars.templates[template];
+    $('#modalContent').html(template(data));
+};
 
 // Begin
 console.log('Start handlebars');
-//loadWidget('test', '#templateDropzone', {playerName: 'Joe'});
+
 console.log('Done handlebars');
 
