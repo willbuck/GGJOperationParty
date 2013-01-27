@@ -1,18 +1,72 @@
 /* OUR CSS HERE */
-.fullHeight {height: 100%; margin: 0; padding: 0;}
-.statusArea {height: 25%; margin: 0; padding: 0; background-color: black;  color: #e0ffff;}
-.playArea {height: 75%; margin: 0; padding: 0; background-color: black; border-top: 2px solid #ffdead;  color: #e0ffff;}
-.widget {border-radius: 5px; border: 1px solid #f5f5f5; padding: 5px; margin: 1% 2.4%; width: 42%; float: left; /*max-height: 32%*/}
+
+body {
+	background: #000;
+}
+
+.fullHeight {
+	height: 100%;
+}
+
+.statusArea {
+	background: #000 url(../images/HeartBeat.gif) center center repeat-x;
+	-webkit-background-size: 100%;
+	height: 50px;
+}
+
+.taskArea {
+	padding: 12px 10px;
+	background: #121;
+	min-height: 20px;
+}
+
+	#task {
+		font-size: 20px;
+		line-height: 20px;
+		text-align: center;
+		color: #0d0;
+		margin: 0;
+	}
+
+.scrollCruft {
+	height: 350px;
+}
+
+.playArea {
+	
+}
+
+.widget {
+	width: 50%;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+	.widget canvas {
+		margin: 0 auto;
+		width: 150px;
+		height: 150px;
+	}
+	
+	@media only screen and (min-height: 700px) {
+		.widget canvas {
+			width: 300px;
+			height: 300px;
+		}
+	}
+
 
 
 
 .modalDialog {
-    position: fixed;
+    position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     background: rgba(0,0,0,0.8);
     z-index: 99999;
     opacity:0;
@@ -22,23 +76,23 @@
     transition: opacity 400ms ease-in;
     pointer-events: none;
 }
-.modalDialog.active {
-    opacity:1;
-	display: block;
-    pointer-events: auto;
-}
+	.modalDialog.active {
+	    opacity:1;
+		display: block;
+	    pointer-events: auto;
+	}
 
-.modalDialog.active > div {
-    width: 75%;
-    position: relative;
-    margin: 10% auto;
-    padding: 5px 20px 13px 20px;
-    border-radius: 10px;
-    background: #fff;
-    background: -moz-linear-gradient(#fff, #999);
-    background: -webkit-linear-gradient(#fff, #999);
-    background: -o-linear-gradient(#fff, #999);
-}
+		.modalDialog.active > div {
+		    width: 75%;
+		    position: relative;
+		    margin: 10% auto;
+		    padding: 5px 20px 13px 20px;
+		    border-radius: 10px;
+		    background: #fff;
+		    background: -moz-linear-gradient(#fff, #999);
+		    background: -webkit-linear-gradient(#fff, #999);
+		    background: -o-linear-gradient(#fff, #999);
+		}
 
 /*.close {*/
     /*background: #606061;*/
@@ -65,29 +119,14 @@
 	overflow: hidden;
 }
 
-.waitingList li {
-	float: left;
-	margin-right: 2.5em;
-	padding: 4px;
-	background: rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-}
+	.waitingList li {
+		float: left;
+		margin-right: 2.5em;
+		padding: 4px;
+		background: rgba(0, 0, 0, 0.1);
+		border-radius: 5px;
+	}
 
 #waitingMsg {
 	display: none;
 }
-
-#task {
-	font-size: 24px;
-	text-align: center;
-	background: #fff;
-	color: #000;
-	padding: 1em;
-}
-
-/*
-.widget canvas {
-	width: 150px;
-	height: 150px;
-}
-*/
