@@ -110,6 +110,9 @@ var preload,
 			'PickNose1.png',
 			'PumpHeart0.png',
 			'PumpHeart1.png',
+			'syringe-bg.png',
+			'syringe-fg.png',
+			'syringe-plunger.png',
 		], oncomplete);
 	}
 	
