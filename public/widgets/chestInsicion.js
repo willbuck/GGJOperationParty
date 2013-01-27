@@ -3,17 +3,18 @@ widgetFactories.chestIncision = function setupChestIncision(widget){
     widget.type = 'chestIncision';
     widget.name = 'Chest';
     
-	var zipper = 150;
 	var zipperMin = 50;
 	var zipperMax = 250;
+	var zipper = zipperMin;
 	
 	function draw(){
 		var ctx = widget.ctx;
 		
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
-		ctx.drawImage(widget.images['tmp-chest-bg.png'], 0, 0);
+		ctx.clearRect(0, 0, 300, 300);
+		ctx.drawImage(widget.images['chest-bg.png'], 0, 0);
 		
-		var chest = widget.images['tmp-chest-fg.png'];
+		var chest = widget.images['chest-fg.png'];
 		ctx.drawImage(chest,
 			0, zipper, 300, 300 - zipper,
 			0, zipper, 300, 300 - zipper

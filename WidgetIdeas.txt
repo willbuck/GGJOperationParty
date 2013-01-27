@@ -30,7 +30,7 @@ SPecific widgets to implement:
 * -- Pump a bellows with a meter.
 * Rhythmic tapping for CPR.
 * -- Chest incision.
-* Tap Pills.
+* -- Tap Pills.
 * Slide and hold for "Clear"
 * Rub ointment.
 * Slider for syringe.

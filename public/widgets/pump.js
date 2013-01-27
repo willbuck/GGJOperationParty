@@ -4,9 +4,9 @@ widgetFactories.pump = function setupPump(widget){
     widget.name = 'Lungs';
     
 	var charge = 0.0;
-	var pump = widget.images['tmp-bellows.png'];
+	var pump = widget.images['bellows.png'];
 	
-	var bottomEdge = 250;
+	var bottomEdge = 270;
 	var topEdge = bottomEdge - pump.height;
 	var topMin = 50;
 	var topMax = topEdge;
