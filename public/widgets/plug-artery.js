@@ -1,7 +1,7 @@
 widgetFactories.plugArtery = function setupChargeDefibrilator(widget){
     
     widget.type = 'plugArtery';
-    widget.name = 'plug';
+    widget.name = 'Artery';
     
 	var buttonState = false;
 	var charge = 0.0;
@@ -36,7 +36,7 @@ widgetFactories.plugArtery = function setupChargeDefibrilator(widget){
 			
 			if(charge == 1){
 				charge = 0;
-				widget.valueChanged("Plugged");
+				widget.valueChanged("Plug");
 			}
 			
 			draw();
