@@ -42,7 +42,7 @@ var Class = require('./Class.js'),
                 function () {
                     this.readyPlayers++;
                     
-                    if (this.readyPlayers > 1 && this.readyPlayers == _.size(this.players)) {
+                    if (this.readyPlayers > 0 && this.readyPlayers == _.size(this.players)) {
                         this.startGame();
                     }
                 }.bind(this)

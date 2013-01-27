@@ -6,8 +6,26 @@ Math.clamp01 = function(t){
 	return Math.clamp(t, 0, 1);
 }
 
-var preload;
-var setupWidget;
+var preload,
+
+    setupWidget,
+    
+    widgetFactories = {},
+    
+    createWidget = function (canvas, type) {
+        setupWidget(canvas, function (widget) {
+            (widgetFactories[type])(widget);
+            
+            widget.valueChanged = function (value) {
+                socket.emit('widgetChanged', {
+                    type: widget.type,
+                    name: widget.name,
+                    value: value
+                });
+            };
+        });
+    };
+    
 
 (function(){
 	function preloadImages(urls, oncomplete){
@@ -111,7 +129,7 @@ var setupWidget;
 		}
 		
 		widget.valueChanged = function(value){
-			console.log(value);
+			console.log('valueChanged', value);
 		}
 		
 		setupComplete(widget)

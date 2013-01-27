@@ -34,7 +34,7 @@ var Class = require('./Class.js'),
             
             // TODO: come up with a required value
             // NOTE: can't pre-generate all tasks if we want to store current value / required value in Widget... we'd either need to generate-as-we-go or store the task states here in the widget
-            data.requiredValue = 1;
+            data.requiredValue = this.action;
             
             return data;
         }
@@ -42,12 +42,14 @@ var Class = require('./Class.js'),
 
 
     var availableWidgets = [
-            {type: 'buttonWidget', name: 'Heart', action: 'Pump'},
-            {type: 'buttonWidget', name: 'Food', action: 'Digest'},
-            {type: 'buttonWidget', name: 'Lungs', action: 'Engage'},
-            {type: 'buttonWidget', name: 'Funny Bone', action: 'Tickle'},
-            {type: 'buttonWidget', name: 'Gas', action: 'Vent'},
-            {type: 'buttonWidget', name: 'Toes', action: 'Twinkle'}
+            {type: 'pump', name: 'Lungs', action: 'Pump'},
+            {type: 'chestIncision', name: 'Chest', action: 'Sew'},
+            {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},
+            {type: 'buttonPushOn', name: 'Heart', action: 'Pump'},
+            {type: 'buttonPushOn', name: 'Food', action: 'Digest'},
+            {type: 'buttonPushOn', name: 'Funny Bone', action: 'Tickle'},
+            {type: 'buttonPushOn', name: 'Gas', action: 'Vent'},
+            {type: 'buttonPushOn', name: 'Toes', action: 'Twinkle'}
         ];
     
     

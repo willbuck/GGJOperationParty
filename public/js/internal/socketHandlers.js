@@ -33,30 +33,44 @@ var SocketHandlers = (function() {
         });
 
         // Hey the game started!
+        // But we probably aren't going to do anything yet
         socket.on('play', function () {
             console.log('play!');
             // Actually probably don't have any action to take with this event... we're really going to start playing after we get our loadWidgets event!
         });
-
-        socket.on('task', function (data) {
-            console.log('Task came with data: ', data);
-            
-            // Testing: auto-play the next move to win
-            //data.value = data.requiredValue;
-            //socket.emit('widgetChanged', data);
-        });
-
-        socket.on('loadWidgets', function(data) {
+        
+        // Hey the game REALLY started because I have my widgets... make them
+        socket.on('loadWidgets', function (data) {
             console.log('Loading and inserting templates: ', data);
             
-            _.each(data.widgets, function(widget) {
-                console.log('Inserting ' + widget.name + ' at ' + widget.destination + ' with controlName ' + widget.data.controlName);
-                loadWidget(widget.name, widget.destination, widget.data);
+            var i = 1;
+            _.each(data, function (widget) {
+                TemplateUtil.loadWidget('#widget' + i, widget);
+                i++;
             });
             
             GameStates.playGame();
         });
 
+        // Hey I got a new task!
+        socket.on('task', function (data) {
+            console.log('Task came with data: ', data);
+            
+            $('#task').html(data.action + ' ' + data.name);
+            
+            // Testing: auto-play the next move to win
+            //data.value = data.requiredValue;
+            //socket.emit('widgetChanged', data);
+        });
+        
+        socket.on('win', function (data) {
+            $('#task').html('Patient has been saved!');
+        });
+        
+        socket.on('lose', function (data) {
+            $('#task').html('Call it. Patient deceased.');
+        });
+        
         socket.on('disconnect', function () {
             socket.disconnect();
         });

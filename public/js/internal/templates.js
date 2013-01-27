@@ -1,11 +1,17 @@
 var TemplateUtil = (function() {
-    var loadWidget = function(widgetName, widgetPosition, widgetData) {
-        //var template = Handlebars.templates[widgetName];
-        //$(widgetPosition).html(template(widgetData));
-        var template = Handlebars.templates['canvasWidget'];
-        $('#widget1').html(template());
-        console.log($('#widget1 canvas')[0]);
-        setupWidget($('#widget1 canvas')[0], widgetName);
+    var loadWidget = function(widgetElement, widgetData) {
+        var widget,
+            template = Handlebars.templates['canvasWidget'];
+        
+        $(widgetElement).html(template());
+        
+        console.log('canvas?', $(widgetElement).find('canvas')[0]);
+        
+        createWidget($(widgetElement).find('canvas')[0], widgetData.type);
+        
+        /*setupWidget($(widgetElement).find('canvas')[0], function (widget) {
+            setupButtonPushOn(widget);
+        });*/
     };
 
 

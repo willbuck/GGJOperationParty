@@ -1,4 +1,4 @@
-function setupButtonPushOn(widget){
+widgetFactories.buttonPushOn = function setupButtonPushOn(widget){
 	var buttonState = false;
 	widget.ctx.drawImage(widget.images['tmp-button-up.png'], 0, 0);
 	

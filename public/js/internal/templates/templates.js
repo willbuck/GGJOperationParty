@@ -42,7 +42,7 @@ function program1(depth0,data) {
   stack2 = {};
   stack1 = helpers.each.call(depth0, stack1, {hash:stack2,inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</ul>\n<input type=\"button\" class=\"startGame\" value=\"I'm Ready!!\">\n<p id=\"waitingMsg\">Waiting...</p>";
+  buffer += "\n</ul>\n<input type=\"button\" class=\"startGame\" value=\"Team is Ready!\">\n<p id=\"waitingMsg\">Waiting...</p>";
   return buffer;});
 templates['selectGameScreen'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers; data = data || {};

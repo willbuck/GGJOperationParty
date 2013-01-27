@@ -2,7 +2,7 @@
 .fullHeight {height: 100%; margin: 0; padding: 0;}
 .statusArea {height: 25%; margin: 0; padding: 0; background-color: black;  color: #e0ffff;}
 .playArea {height: 75%; margin: 0; padding: 0; background-color: black; border-top: 2px solid #ffdead;  color: #e0ffff;}
-.widget {border-radius: 5px; border: 1px solid #f5f5f5; padding: 5px; margin: 1% 2.4%; width: 42%; float: left; max-height: 32%}
+.widget {border-radius: 5px; border: 1px solid #f5f5f5; padding: 5px; margin: 1% 2.4%; width: 42%; float: left; /*max-height: 32%*/}
 
 
 
@@ -16,6 +16,7 @@
     background: rgba(0,0,0,0.8);
     z-index: 99999;
     opacity:0;
+	display: none;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
@@ -23,6 +24,7 @@
 }
 .modalDialog.active {
     opacity:1;
+	display: block;
     pointer-events: auto;
 }
 
@@ -73,4 +75,12 @@
 
 #waitingMsg {
 	display: none;
+}
+
+#task {
+	font-size: 24px;
+	text-align: center;
+	background: #fff;
+	color: #000;
+	padding: 1em;
 }
