@@ -78,6 +78,8 @@ var preload,
 			'Defib0.png',
 			'DefibButton.png',
 			'DefibLevel.png',
+			'PickNose0.png',
+			'PickNose1.png',
 		], oncomplete);
 	}
 	
