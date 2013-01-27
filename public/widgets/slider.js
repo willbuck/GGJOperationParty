@@ -13,11 +13,11 @@ function setupSlider(widget){
 		};
 	}
 	
-	var slider = widget.images['tmp-slider.png'];
+	var slider = widget.images['/widgets/tmp-slider.png'];
 	
 	function draw(pos){
 		widget.ctx.setTransform(1, 0, 0, 1, 0, 0)
-		widget.ctx.drawImage(widget.images['tmp-slider-bg.png'], 0, 0);
+		widget.ctx.drawImage(widget.images['/widgets/tmp-slider-bg.png'], 0, 0);
 		
 		var pos = sliderPos();
 		widget.ctx.setTransform(1, 0, 0, 1, pos.x, pos.y)
@@ -26,7 +26,7 @@ function setupSlider(widget){
 	
 	var dragging = false;
 	widget.canvas.onmousedown = function(e){
-		var radius = 20;
+		var radius = 40;
 		var pos = sliderPos();
 		
 		var x = e.offsetX - pos.x;

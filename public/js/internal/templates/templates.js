@@ -15,6 +15,12 @@ templates['buttonWidget'] = template(function (Handlebars,depth0,helpers,partial
   else { stack1 = depth0.controlAction; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1) + "\" />";
   return buffer;});
+templates['canvasWidget'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers; data = data || {};
+  
+
+
+  return "<canvas height=\"300\" width=\"300\"></canvas>";});
 templates['lobbyScreen'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;

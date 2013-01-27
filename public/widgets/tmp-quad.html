@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div>
+	<canvas width="300" height="300" id="canvas1"></canvas>
+	<canvas width="300" height="300" id="canvas2"></canvas>
+</div>
+<div>
+	<canvas width="300" height="300" id="canvas3"></canvas>
+	<canvas width="300" height="300" id="canvas4"></canvas>
+</div>
+
+<script src="/js/external/zepto.js"></script>
+<script src="widgets.js"></script>
+<script src="chargeDefibrilator.js"></script>
+
+<script>
+	preload(function(){
+		setupWidget(document.getElementById('canvas1'), setupChargeDefibrilator);
+	});
+</script>
