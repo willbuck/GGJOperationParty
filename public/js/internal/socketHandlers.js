@@ -1,7 +1,7 @@
 console.log('Loading Socket.io connection');
 
 //var socketEndpointUrl = environment.dev ? 'http://localhost' : 'http://ggj-2013-operation-party.herokuapp.com/';
-var socketEndpointUrl = 'http://localhost';
+//var socketEndpointUrl = 'http://localhost';
 var joined = false,
     socket = io.connect(window.location.hostname);
 
@@ -43,7 +43,7 @@ socket.on('lobbies', function (data) {
     });
 
     socket.on('loadWidgets', function(data) {
-        console.log('Loading and inserting templates: ' + data);
+        console.log('Loading and inserting templates: ', data);
         _.each(data.widgets, function(widget) {
             console.log('Inserting ' + widget.name + ' at ' + widget.destination + ' with controlName ' + widget.data.controlName);
             loadWidget(widget.name, widget.destination, widget.data);
