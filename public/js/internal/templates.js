@@ -7,9 +7,11 @@ var TemplateUtil = (function() {
         
         console.log('canvas?', $(widgetElement).find('canvas')[0]);
         
-        widget = setupWidget($(widgetElement).find('canvas')[0], function (widget) {
+        createWidget($(widgetElement).find('canvas')[0], widgetData.type);
+        
+        /*setupWidget($(widgetElement).find('canvas')[0], function (widget) {
             setupButtonPushOn(widget);
-        });
+        });*/
     };
 
 

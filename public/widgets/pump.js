@@ -1,4 +1,8 @@
-function setupPump(widget){
+widgetFactories.pump = function setupPump(widget){
+    
+    widget.type = 'pump';
+    widget.name = 'Lungs';
+    
 	var charge = 0.0;
 	var pump = widget.images['tmp-bellows.png'];
 	
@@ -32,7 +36,7 @@ function setupPump(widget){
 			
 			if(charge == 1){
 				charge = 0;
-				widget.valueChanged("Pumped");
+				widget.valueChanged('Pump');
 			}
 			
 			draw();

@@ -32,7 +32,7 @@ var Class = require('./Class.js'),
             
             this.assignWidgets();
             
-            this.createTasks(2);///_.size(this.widgets)); //TODO: how many tasks per game?
+            this.createTasks(_.size(this.players)); // TODO... how many tasks?
             
             this.assignTasks();
             
@@ -102,7 +102,7 @@ var Class = require('./Class.js'),
             
             _.each(this.nowTasks, function (task, index) {
                 // Is task resolved?
-                if (task.name == data.name && task.requiredValue == data.value) {
+                if (task.type == data.type && task.name == data.name && task.requiredValue == data.value) {
                     // Remove this task because it is done
                     var completedTask = this.nowTasks.splice(index, 1)[0];
                     

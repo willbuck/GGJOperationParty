@@ -1,4 +1,8 @@
-function setupChestIncision(widget){
+widgetFactories.chestIncision = function setupChestIncision(widget){
+    
+    widget.type = 'chestIncision';
+    widget.name = 'Chest';
+    
 	var zipper = 150;
 	
 	function draw(){
@@ -45,6 +49,11 @@ function setupChestIncision(widget){
 		
 		var y = e.offsetY;
 		zipper = y;
+		
+		if (zipper == 300) {
+		    widget.valueChanged('Sew');
+		}
+		
 		draw();
 	}
 	

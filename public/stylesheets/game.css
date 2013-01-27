@@ -76,3 +76,11 @@
 #waitingMsg {
 	display: none;
 }
+
+#task {
+	font-size: 24px;
+	text-align: center;
+	background: #fff;
+	color: #000;
+	padding: 1em;
+}

@@ -1,4 +1,8 @@
-function setupChargeDefibrilator(widget){
+widgetFactories.chargeDefibrilator = function setupChargeDefibrilator(widget){
+    
+    widget.type = 'chargeDefibrilator';
+    widget.name = 'Defibrilator';
+    
 	var buttonState = false;
 	var charge = 0.0;
 	
@@ -34,7 +38,7 @@ function setupChargeDefibrilator(widget){
 			
 			if(charge == 1){
 				charge = 0;
-				widget.valueChanged("Defibrilator charged");
+				widget.valueChanged("Charge");
 			}
 			
 			draw();
