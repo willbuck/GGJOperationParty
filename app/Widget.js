@@ -40,6 +40,12 @@ var Class = require('./Class.js'),
                 
             } else if (this.type == 'syringe') {
                 data.action = 'Inject ' + (1 + Math.floor(Math.random() * 4)) + 'cc';
+                
+            } else if (this.type == 'dial') {
+                data.action = 'Set Dial to ' + Math.floor(Math.random() * 5);
+                
+            } else if (this.type == 'slider') {
+                data.action = 'Slide to ' + Math.floor(Math.random() * 2);
             }
             
             data.requiredValue = data.action;
@@ -54,8 +60,8 @@ var Class = require('./Class.js'),
             {type: 'chestIncision', name: 'Chest', action: 'Sew'},
             {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},
             {type: 'buttonMomentary', name: 'Gas', action: 'Vent'},
-            {type: 'dial', name: 'Morphine', action: 'dial set to 3'},
-            {type: 'slider', name: 'Patient Safety', action: 'slider to 1'},
+            {type: 'dial', name: 'Morphine', action: 'Set Dial to 3'},
+            {type: 'slider', name: 'Life Line', action: 'Slide to 1'},
             {type: 'pickNose', name: 'Nose', action: 'Pick'},
             {type: 'syringe', name: 'Placebo', action: 'Inject 10cc'},
             {type: 'pills', name: 'Pills', action: 'Take Green'}/*,
