@@ -140,7 +140,7 @@ var preload,
 			if(touchID != null) return;
 			
 			var touch = e.changedTouches[0];
-			touchID = touch.identifier;
+			touchID = touch.identifier || true;
 			
 			if(canvas.onmousedown) canvas.onmousedown(convertTouch(touch));
 		}
@@ -149,8 +149,9 @@ var preload,
 			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
-				if(touch.identifier = touchID){
+				if(touchID === true || touch.identifier = touchID){
 					if(canvas.onmousemove) canvas.onmousemove(convertTouch(touch));
+					break;
 				}
 			}
 		}
@@ -159,11 +160,12 @@ var preload,
 			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
-				if(touch.identifier = touchID){
+				if(touchID === true || touch.identifier = touchID){
 					var converted = convertTouch(touch);
 					if(canvas.onmouseup) canvas.onmouseup(converted);
 					if(canvas.onclick) canvas.onclick(converted);
 					touchID = null;
+					break;
 				}
 			}
 		}
