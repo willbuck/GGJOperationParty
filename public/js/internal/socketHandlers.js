@@ -78,6 +78,11 @@ var SocketHandlers = (function() {
             //data.value = data.requiredValue;
             //socket.emit('widgetChanged', data);
         });
+
+        socket.on('updateTasksRemaining', function(data){
+            console.log('Updating tasks left to: ' + data.remaining);
+            $('#numTasksRemaining').html(data.remaining);
+        });
         
         socket.on('win', function (data) {
             $('#task').html('Patient has been saved!');
