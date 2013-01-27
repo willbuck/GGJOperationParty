@@ -47,6 +47,11 @@
 <body class="fullHeight">
 
 	<div class="fullHeight">
+        <div id="openModal" class="modalDialog">
+            <div id="modalContent">
+            </div>
+        </div>
+
 		<div class="statusArea">
 			<p>Game Status</p>
             <p>A Heart Rate Monitor 'Status Bar' goes here to show how the game is going</p>
@@ -57,22 +62,24 @@
             <div class="widget" id="widget1"></div>
             <div class="widget" id="widget2"></div>
             <div class="widget" id="widget3"></div>
-            <div class="widget two columns" id="widget4"></div>
+            <div class="widget" id="widget4"></div>
 		</div>
 	</div><!-- container -->	
 
 	
     <!-- Post-load js of ours -->
     <!-- Handlebars compiled templates-->
-    <script src="/js/internal/templates/test.handlebars.js"></script>
-    <script src="/js/internal/templates/buttonWidget.handlebars.js"></script>
+    <script src="/js/internal/templates/templates.js"></script>
+
 
     <!-- template utilities -->
     <script type="text/javascript" src="/js/internal/templates.js"></script>
 
+    <!-- handlers for transitioning between game states / screens -->
+    <script src="/js/internal/gameStates.js"></script>
+
     <!-- socket.io connection and handlers -->
     <script src="/js/internal/socketHandlers.js"></script>
-
 
 
 

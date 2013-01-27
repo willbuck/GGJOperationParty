@@ -19,6 +19,12 @@ var Class = require('./Class.js'),
         
         game: null,
         
+        init: function (settings) {
+            this._super(settings);
+            
+            this.reset();
+        },
+        
         addPlayer: function (socket, data) {
             if (!this.open) {
                 return false;
@@ -36,7 +42,7 @@ var Class = require('./Class.js'),
                 function () {
                     this.readyPlayers++;
                     
-                    if (this.readyPlayers == _.size(this.players)) {
+                    if (this.readyPlayers > 1 && this.readyPlayers == _.size(this.players)) {
                         this.startGame();
                     }
                 }.bind(this)
@@ -55,6 +61,8 @@ var Class = require('./Class.js'),
             
             socket.emit('joined');
             
+            this.emit('playerList', {'players': _.pluck(this.players, 'name')});
+            
             return true;
         },
         
@@ -62,6 +70,28 @@ var Class = require('./Class.js'),
             console.log('removePlayer');
             
             delete this.players[player.uid];
+            this.readyPlayers--;
+            if (this.readyPlayers < 0) {
+                this.readyPlayers = 0;
+            }
+            
+            if (_.size(this.players) == 0) {
+                this.reset();
+            }
+        },
+        
+        reset: function () {
+            this.open = true;
+            
+            this.readyPlayers = 0;
+            this.players = {};
+            
+            if (this.game) {
+                this.game.end();
+            }
+            this.game = null;
+            
+            console.log('reset', this.players, _.size(this.players), this.readyPlayers);
         },
         
         startGame: function () {

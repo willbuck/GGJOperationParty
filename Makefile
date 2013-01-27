@@ -2,6 +2,7 @@ all:
 	@npm install -d
 	@cp scripts/githooks/* .git/hooks/
 	@chmod -R +x .git/hooks/
+	@handlebars public/js/internal/templates/ > public/js/internal/templates/templates.js
 
 files := $(shell find . -name '*.js' ! -path "*node_modules/*")
 lint:
