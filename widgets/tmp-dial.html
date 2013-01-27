@@ -34,6 +34,13 @@ setupCanvas(function(widget){
 		if(!dragging) return;
 		
 		var angle = Math.atan2(e.clientX - 150, 150 - e.clientY);
+		console.log("angle: " + angle);
+		console.log("x: " + e.clientX + ", y: " + e.clientY);
+		
+		if(isNaN(angle)){
+			console.log("badness");
+		}
+		
 		var clamped = Math.min(Math.max(-Math.PI/2, angle), Math.PI/2) + Math.PI/2;
 		
 		var quant = Math.PI/4;
