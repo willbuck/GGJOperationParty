@@ -96,8 +96,9 @@ var Class = require('./Class.js'),
                 this.nowTasks.push(task);
                 
                 console.log('patient needs: ', task);
-                
+                this.lobby.emit('updateTasksRemaining', {remaining: this.laterTasks.length + this.nowTasks.length});
             } else if (this.laterTasks.length == 0) {
+                this.lobby.emit('updateTasksRemaining', {remaining: this.laterTasks.length + this.nowTasks.length});
                 player.setTask({empty: true});
             }
         },
@@ -133,6 +134,7 @@ var Class = require('./Class.js'),
         
         win: function () {
             console.log('players have won!!');
+            this.lobby.emit('updateTasksRemaining', {remaining: this.laterTasks.length + this.nowTasks.length});
             
             this.lobby.emit('win');
             
