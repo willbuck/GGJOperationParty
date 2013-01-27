@@ -15,10 +15,10 @@ widgetFactories.pump = function setupPump(widget){
 		var ctx = widget.ctx;
 		
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
-		ctx.fillStyle = "black";
+		ctx.fillStyle = "red";
 		ctx.fillRect(0, 0, 300, 300);
 		
-		ctx.fillStyle = "white";
+		ctx.fillStyle = "green";
 		var height = charge*300;
 		ctx.fillRect(0, 300 - height, 300, height);
 		

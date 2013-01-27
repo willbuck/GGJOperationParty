@@ -80,6 +80,8 @@ var preload,
 			'DefibLevel.png',
 			'PickNose0.png',
 			'PickNose1.png',
+			'PumpHeart0.png',
+			'PumpHeart1.png',
 		], oncomplete);
 	}
 	
