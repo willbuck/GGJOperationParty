@@ -75,6 +75,11 @@ var Class = require('./Class.js'),
                 this.readyPlayers = 0;
             }
             
+            // Player has left an open lobby
+            if (this.open) {
+                this.emit('playerList', {'players': _.pluck(this.players, 'name')});
+            }
+            
             if (_.size(this.players) == 0) {
                 this.reset();
             }
