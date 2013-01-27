@@ -4,7 +4,8 @@ var express = require('express'),
     _ = require('underscore'),
     io = require('socket.io').listen(app),
     Lobby = require('./app/Lobby.js'),
-    lobbies = {'test game': new Lobby({'name': 'test game', 'io': io})},
+    maxLobbies = 5,
+    lobbies = {'game 1': new Lobby({'name': 'game 1', 'io': io})},
     NODE_ENV = process.env.NODE_ENV || 'dev';
 
 // app.use(express.cookieParser());
@@ -32,7 +33,19 @@ io.sockets.on('connection', function (socket) {
     console.log('a client is connected');
     
     // 1. Somebody connected, send them a list of lobbies/rooms/groups whatever they can join
-    socket.emit('lobbies', {lobbies: _.keys(lobbies)});
+    var openLobbies = {};
+    _.each(lobbies, function (lobby) {
+        if (lobby.open) {
+            openLobbies[lobby.name] = lobby;
+        }
+    });
+    var count = _.size(lobbies);
+    if (_.size(openLobbies) == 0 && count < maxLobbies) {
+        var name = 'game ' + (count + 1);
+        lobbies[name] = new Lobby({'name': name, 'io': io});
+        openLobbies[name] = lobbies[name];
+    }
+    socket.emit('lobbies', {lobbies: _.keys(openLobbies)});
     
     // 2. They will tell us which one they want to join... I suppose in the future they might create a new one
     socket.on(

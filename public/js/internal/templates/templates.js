@@ -51,7 +51,9 @@ templates['selectGameScreen'] = template(function (Handlebars,depth0,helpers,par
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <li><input class=\"gameSelect\" type=\"button\" value=\"";
+  buffer += "\n    <li data-name=\"";
+  stack1 = typeof depth0 === functionType ? depth0.apply(depth0) : depth0;
+  buffer += escapeExpression(stack1) + "\"><input class=\"gameSelect\" type=\"button\" value=\"";
   stack1 = typeof depth0 === functionType ? depth0.apply(depth0) : depth0;
   buffer += escapeExpression(stack1) + "\"/></li>\n";
   return buffer;}

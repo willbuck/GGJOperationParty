@@ -34,6 +34,12 @@ var SocketHandlers = (function() {
             });
         });
 
+        socket.on('closeLobby', function (data) {
+            console.log(data);
+            console.log($('li[data-name="' + data.name + '"]'));
+            $('li[data-name="' + data.name + '"]').remove();
+        });
+    
         // Hey the game started!
         // But we probably aren't going to do anything yet
         socket.on('play', function () {

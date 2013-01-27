@@ -19,6 +19,9 @@ var Class = require('./Class.js'),
         
         game: null,
         
+        // hack
+        broadcastSocket: null,
+        
         init: function (settings) {
             this._super(settings);
             
@@ -29,6 +32,8 @@ var Class = require('./Class.js'),
             if (!this.open) {
                 return false;
             }
+            
+            this.broadcastSocket = socket;
             
             console.log('addPlayer');
             
@@ -103,6 +108,8 @@ var Class = require('./Class.js'),
             console.log('startGame');
             
             this.open = false;
+            
+            this.broadcastSocket.broadcast.emit('closeLobby', {name: this.name});
             
             this.game = new Game({'io': this.io, 'lobby': this, 'players': this.players});
             
