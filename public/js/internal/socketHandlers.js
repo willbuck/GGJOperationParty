@@ -41,8 +41,8 @@ var SocketHandlers = (function() {
             console.log('Task came with data: ', data);
             
             // TODO: don't auto-play the next move, obviously
-            data.value = data.requiredValue;
-            socket.emit('widgetChanged', data);
+            //data.value = data.requiredValue;
+            //socket.emit('widgetChanged', data);
         });
 
         socket.on('loadWidgets', function(data) {

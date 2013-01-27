@@ -87,7 +87,7 @@ var Class = require('./Class.js'),
             this.players = {};
             
             if (this.game) {
-                this.game.end();
+                this.game.destroy();
             }
             this.game = null;
             

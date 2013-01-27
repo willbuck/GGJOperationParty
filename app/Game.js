@@ -12,7 +12,7 @@ var Class = require('./Class.js'),
         
         players: {}, // by uid
         
-        taskInterval: null,
+        gameTimer: null,
         
         widgetsPerPlayer: 4,
         
@@ -35,6 +35,14 @@ var Class = require('./Class.js'),
             this.createTasks(2);///_.size(this.widgets)); //TODO: how many tasks per game?
             
             this.assignTasks();
+            
+            this.startTimer(30);
+        },
+        
+        startTimer: function (seconds) {
+            this.gameTimer = setTimeout(function () {
+                this.lose();
+            }.bind(this), seconds * 1000);
         },
         
         assignWidgets: function () {
@@ -114,11 +122,19 @@ var Class = require('./Class.js'),
         
         win: function () {
             console.log('players have won!!');
+            
+            this.lobby.emit('win');
+        },
+        
+        lose: function () {
+            console.log('FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            
+            this.lobby.emit('lose');
         },
         
         // Call when you are going to destroy a game
-        end: function () {
-            clearInterval(this.taskInterval);
+        destroy: function () {
+            clearTimeout(this.gameTimer);
         }
     });
 
