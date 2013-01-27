@@ -25,6 +25,33 @@ var preload,
                     value: value
                 });
             };
+            
+            if (typeof document.body.ontouchstart == 'undefined') {
+                var emap = function (e) {
+                        return {offsetX: e.offsetX * widgetInputScale, offsetY: e.offsetY * widgetInputScale};
+                    };
+                
+                var mdproxy = widget.canvas.onmousedown;
+                if (mdproxy) {
+                    widget.canvas.onmousedown = function (e) {
+                        mdproxy(emap(e));
+                    };
+                }
+                
+                var mmproxy = widget.canvas.onmousemove;
+                if (mmproxy) {
+                    widget.canvas.onmousemove = function (e) {
+                        mmproxy(emap(e));
+                    };
+                }
+                
+                var muproxy = widget.canvas.onmouseup;
+                if (muproxy) {
+                    widget.canvas.onmouseup = function (e) {
+                        muproxy(emap(e));
+                    };
+                }
+            }
         });
     };
     
