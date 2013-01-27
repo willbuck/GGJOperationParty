@@ -46,12 +46,13 @@ var SocketHandlers = (function() {
             //socket.emit('widgetChanged', data);
         });
 
-        socket.on('loadWidgets', function(data) {
+        socket.on('loadWidgets', function (data) {
             console.log('Loading and inserting templates: ', data);
             
-            _.each(data.widgets, function(widget) {
-                console.log('Inserting ' + widget.name + ' at ' + widget.destination + ' with controlName ' + widget.data.controlName);
-                loadWidget(widget.name, widget.destination, widget.data);
+            var i = 1;
+            _.each(data, function (widget) {
+                TemplateUtil.loadWidget('#widget' + i, widget);
+                i++;
             });
             
             GameStates.playGame();
