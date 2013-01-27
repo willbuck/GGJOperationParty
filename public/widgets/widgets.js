@@ -75,6 +75,9 @@ var preload,
 			'red-pill.png',
 			'blue-pill.png',
 			'green-pill.png',
+			'Defib0.png',
+			'DefibButton.png',
+			'DefibLevel.png',
 		], oncomplete);
 	}
 	
