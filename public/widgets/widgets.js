@@ -14,11 +14,12 @@ var preload,
     
     widgetInputScale = 1,
     
-    createWidget = function (canvas, type) {
+    createWidget = function (canvas, widgetData) {
         setupWidget(canvas, function (widget) {
-            (widgetFactories[type])(widget);
+            (widgetFactories[widgetData.type])(widget);
             
             widget.valueChanged = function (value) {
+                console.log('Widget type: ' + widget.type + ' changing to: ' + value);
                 socket.emit('widgetChanged', {
                     type: widget.type,
                     name: widget.name,

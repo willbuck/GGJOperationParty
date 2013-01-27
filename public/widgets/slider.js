@@ -5,6 +5,9 @@ widgetFactories.slider = function(widget){
 	widget.maxY = 250;
 	widget.stops = 2;
 	widget.quant = (widget.maxY - widget.minY)/widget.stops;
+
+    widget.type = 'slider';
+    widget.name = 'Patient Safety';
 	
 	function sliderPos(){
 		return {
@@ -49,11 +52,11 @@ widgetFactories.slider = function(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			widget.valueChanged("slider set to " + value);
+			widget.valueChanged("slider to " + value);
 			
 			draw();
 		}
 	}
 	
-	draw()
+	draw();
 }

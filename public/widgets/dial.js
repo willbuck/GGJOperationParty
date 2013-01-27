@@ -1,5 +1,7 @@
 widgetFactories.dial = function(widget){
 	widget.value = 0;
+    widget.type = 'dial';
+    widget.name = 'Morphine';
 	
 	function draw(angle){
 		widget.ctx.setTransform(1, 0, 0, 1, 0, 0)
@@ -36,8 +38,8 @@ widgetFactories.dial = function(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			widget.valueChanged("dial set to " + value);
-			
+			widget.valueChanged('dial set to ' + value);
+
 			draw(value*quant);
 		}
 	}

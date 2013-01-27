@@ -7,7 +7,7 @@ var TemplateUtil = (function() {
         
         console.log('canvas?', $(widgetElement).find('canvas')[0]);
         
-        createWidget($(widgetElement).find('canvas')[0], widgetData.type);
+        createWidget($(widgetElement).find('canvas')[0], widgetData);
         
         /*setupWidget($(widgetElement).find('canvas')[0], function (widget) {
             setupButtonPushOn(widget);
