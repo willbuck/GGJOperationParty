@@ -46,6 +46,12 @@ var setupWidget;
 			'tmp-bellows.png',
 			'tmp-chest-bg.png',
 			'tmp-chest-fg.png',
+			'tmp-button-up.png',
+			'tmp-button-down.png',
+			'tmp-dial-bg.png',
+			'tmp-dial.png',
+			'tmp-slider-bg.png',
+			'tmp-slider.png',
 		], oncomplete);
 	}
 	
