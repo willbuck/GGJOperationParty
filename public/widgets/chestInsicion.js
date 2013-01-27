@@ -5,7 +5,7 @@ widgetFactories.chestIncision = function setupChestIncision(widget){
     
 	var zipperMin = 50;
 	var zipperMax = 250;
-	var zipper = zipperMin;
+	var zipper = zipperMax;
 	
 	function draw(){
 		var ctx = widget.ctx;

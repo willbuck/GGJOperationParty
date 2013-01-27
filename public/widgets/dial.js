@@ -38,7 +38,7 @@ widgetFactories.dial = function(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			widget.valueChanged('dial set to ' + value);
+			widget.valueChanged('Set Dial to ' + value);
 
 			draw(value*quant);
 		}

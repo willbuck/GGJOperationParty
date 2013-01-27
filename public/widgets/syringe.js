@@ -1,13 +1,14 @@
 widgetFactories.syringe = function(widget){
+    
+    widget.type = 'syringe';
+    widget.name = 'Placebo';
+    
 	widget.value = 0;
 	widget.x = 150;
 	widget.minY = 30;
 	widget.maxY = 230;
 	widget.stops = 5;
 	widget.quant = (widget.maxY - widget.minY)/widget.stops;
-
-    widget.type = 'slider';
-    widget.name = 'syringe';
 	
 	function sliderPos(){
 		return {
@@ -61,7 +62,7 @@ widgetFactories.syringe = function(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			widget.valueChanged("syringe to " + value);
+			widget.valueChanged("Inject " + value + "cc");
 			
 			draw();
 		}

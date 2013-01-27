@@ -7,7 +7,7 @@ widgetFactories.slider = function(widget){
 	widget.quant = (widget.maxY - widget.minY)/widget.stops;
 
     widget.type = 'slider';
-    widget.name = 'Patient Safety';
+    widget.name = 'Life Line';
 	
 	function sliderPos(){
 		return {
@@ -52,7 +52,7 @@ widgetFactories.slider = function(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			widget.valueChanged("slider to " + value);
+			widget.valueChanged("Slide to " + value);
 			
 			draw();
 		}

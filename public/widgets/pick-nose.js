@@ -1,6 +1,6 @@
 widgetFactories.pickNose = function(widget){
     
-    widget.type = 'buttonMomentary';
+    widget.type = 'pickNose';
     widget.name = 'Nose';
 	
 	var ctx = widget.ctx;
