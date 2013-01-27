@@ -146,7 +146,7 @@ var preload,
 		}
 		
 		canvas.ontouchmove = function(e){
-			var touches = e.changedTouches;
+			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
 				if(touch.identifier = touchID){
@@ -156,7 +156,7 @@ var preload,
 		}
 		
 		canvas.ontouchend = function(e){
-			var touches = e.changedTouches;
+			var touches = e.changedTouches || e.touches;
 			for(i=0; i<touches.length; i++){
 				var touch = touches[i];
 				if(touch.identifier = touchID){
