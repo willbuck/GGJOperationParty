@@ -16,6 +16,7 @@ var preload,
     
     createWidget = function (canvas, widgetData) {
         setupWidget(canvas, function (widget) {
+            console.log('create ' + widgetData.type);
             (widgetFactories[widgetData.type])(widget);
             
             widget.valueChanged = function (value) {

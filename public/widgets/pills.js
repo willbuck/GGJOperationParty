@@ -1,22 +1,22 @@
 widgetFactories.pills = function(widget){
     
     widget.type = 'pills';
-    widget.name = 'Pills ';
+    widget.name = 'Pills';
     
 	var redPills, bluePills, greenPills;
 	function resetPills(){
 		redPills = [];
-		for(var i=0; i<10; i++){
+		for(var i=0; i<3; i++){
 			redPills.unshift({x:50 + Math.random()*200, y:50 + Math.random()*200});
 		}
 		
 		bluePills = [];
-		for(var i=0; i<10; i++){
+		for(var i=0; i<3; i++){
 			bluePills.push({x:50 + Math.random()*200, y:50 + Math.random()*200});
 		}
 		
 		greenPills = [];
-		for(var i=0; i<10; i++){
+		for(var i=0; i<3; i++){
 			greenPills.push({x:50 + Math.random()*200, y:50 + Math.random()*200});
 		}
 		
@@ -63,12 +63,12 @@ widgetFactories.pills = function(widget){
 	var timeout = null;
 	widget.canvas.onmouseup = function(e){
 		if(timeout) clearTimeout(timeout);
-		timeout = setTimeout(resetPills, 3*1e3);
+		timeout = setTimeout(resetPills, 2000);
 		
 		for(var i=0; i<redPills.length; i++){
 			if(checkPill(redPills[i], e)){
 				redPills.splice(i, 1);
-				if(redPills.length == 0) widget.valueChanged("red pills");
+				if(redPills.length == 0) widget.valueChanged("Take Red");
 				draw();
 				return
 			} 
@@ -77,7 +77,7 @@ widgetFactories.pills = function(widget){
 		for(var i=0; i<bluePills.length; i++){
 			if(checkPill(bluePills[i], e)){
 				bluePills.splice(i, 1);
-				if(bluePills.length == 0) widget.valueChanged("blue pills");
+				if(bluePills.length == 0) widget.valueChanged("Take Blue");
 				draw();
 				return
 			} 
@@ -86,11 +86,13 @@ widgetFactories.pills = function(widget){
 		for(var i=0; i<greenPills.length; i++){
 			if(checkPill(greenPills[i], e)){
 				greenPills.splice(i, 1);
-				if(greenPills.length == 0) widget.valueChanged("green pills");
+				if(greenPills.length == 0) widget.valueChanged("Take Green");
 				draw();
 				return
 			} 
 		}
+		
+		console.log('pill lengths', redPills.length, bluePills.length, greenPills.length);
 	}
 	
 	resetPills();
