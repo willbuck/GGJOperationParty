@@ -49,7 +49,7 @@ function setupSlider(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			console.log("value set to: " + value);
+			widget.valueChanged("slider set to " + value);
 			
 			draw();
 		}

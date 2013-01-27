@@ -36,7 +36,7 @@ function setupDial(widget){
 		
 		if(widget.value != value){
 			widget.value = value;
-			console.log("value set to: " + value);
+			widget.valueChanged("dial set to " + value);
 			
 			draw(value*quant);
 		}

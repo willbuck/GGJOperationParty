@@ -7,5 +7,6 @@ function setupButtonMomentary(widget){
 	
 	widget.canvas.onmouseup = function(e){
 		widget.ctx.drawImage(widget.images['tmp-button-up.png'], 0, 0);
+		widget.valueChanged("button released");
 	}
 }

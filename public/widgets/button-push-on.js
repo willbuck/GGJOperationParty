@@ -6,8 +6,9 @@ function setupButtonPushOn(widget){
 		buttonState = !buttonState;
 		if(buttonState){
 			widget.ctx.drawImage(widget.images['tmp-button-down.png'], 0, 0);
+			widget.valueChanged("button on");
 		} else {
-			widget.ctx.drawImage(widget.images['tmp-button-up.png'], 0, 0);
+			widget.valueChanged("button off");
 		}
 	}
 }
