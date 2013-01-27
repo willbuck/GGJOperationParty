@@ -2,7 +2,7 @@
 <p>Players currently in lobby:</p>
 <ul>
     {{#each players}}
-        <span class="{{this.readyIndicator}}">{{this.name}}</span>
+        <span class="waiting">{{this}}</span>
     {{/each}}
 </ul>
 <input type="button" class="startGame" value="I'm Ready!">

@@ -2,37 +2,44 @@ console.log('Loading Socket.io connection');
 
 //var socketEndpointUrl = environment.dev ? 'http://localhost' : 'http://ggj-2013-operation-party.herokuapp.com/';
 var socketEndpointUrl = 'http://localhost';
-var joined = false,
+var GameData = {
+        joined : false,
+        players : []
+    },
     socket = io.connect(window.location.hostname);
 
 // Get named lobbies
 socket.on('lobbies', function (data) {
-    if (joined) {
+    if (GameData.joined) {
         return;
     }
-
-    // Join a named lobby
-    socket.emit('join', {lobby: 'test'});
+    GameStates.loadStartScreen();
 
     // You joined your lobby successfully
     socket.on('joined', function () {
-        if (joined) {
+        if (GameData.joined) {
             return;
         }
 
-        console.log('joined');
-
-        joined = true;
-
-        // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
-        socket.emit('ready');
+        console.log('Joined');
+        GameData.joined = true;
+        // Every time a new player joins the lobby we get a list of *all* current players
+        socket.on('playerList', function (data) {
+            console.log(data.players);
+            GameData.players = data.players;
+            loadGameScreen('lobbyScreen', {
+                lobby: {name: 'test'},
+                players: GameData.players
+            });
+            $('.startGame').on('touch click', function(e) {
+                console.log('Time to Start!');
+                // When you are ready, tell the lobby (when everybody in the lobby is ready the game starts)
+                socket.emit('ready');
+                $('.modalDialog').removeClass('active');
+            });
+        });
     });
 
-    // Every time a new player joins the lobby we get a list of *all* current players
-    socket.on('playerList', function (data) {
-        console.log(data.players);
-    });
-    
     // Hey the game started!
     socket.on('play', function () {
         console.log('play!');

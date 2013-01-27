@@ -1,17 +1,22 @@
-// Put the modal up right away
-loadGameScreen('selectGameScreen', {lobbies: [{gameID: 1, name: 'The Only Game'}]});
-$('.modalDialog').addClass('active');
+var GameStates = (function() {
+    var joinGame = function(lobbyName) {
+        // Join a named lobby
+        console.log('Joining game: ' + lobbyName);
+        socket.emit('join', {lobby: lobbyName});
+    };
+    return {
+        loadStartScreen: function() {
+            loadGameScreen('selectGameScreen', {lobbies: [{gameID: 1, name: 'test'}]});
+            $('.modalDialog').addClass('active');
+            $('.gameSelect').on('touch click', function(e) {
+                console.log(e);
+                joinGame(e.toElement.value);
+            });
+        },
+        loadLobbyScreen: function() {
 
-$('.gameSelect').on('touch click', function() {
-    // TODO Emit a joining game event, fade in the game lobby
-    loadGameScreen('lobbyScreen', {
-        lobby: {name: 'The Only Game'},
-        players: [{readyIndicator: 'waiting', name: 'Dr. Bob'}]
-    });
+        }
+    }
+})();
 
-    $('.startGame').on('touch click', function() {
-        console.log('Time to Start!');
-        // TODO emit a starting game type event thing
-        $('.modalDialog').removeClass('active');
-    });
-});
+

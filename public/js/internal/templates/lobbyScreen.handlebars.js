@@ -7,12 +7,8 @@ templates['lobbyScreen'] = template(function (Handlebars,depth0,helpers,partials
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        <span class=\"";
-  stack1 = depth0.readyIndicator;
-  stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1;
-  buffer += escapeExpression(stack1) + "\">";
-  stack1 = depth0.name;
-  stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1;
+  buffer += "\n        <span class=\"waiting\">";
+  stack1 = typeof depth0 === functionType ? depth0.apply(depth0) : depth0;
   buffer += escapeExpression(stack1) + "</span>\n    ";
   return buffer;}
 
