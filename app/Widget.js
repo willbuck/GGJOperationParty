@@ -56,6 +56,9 @@ var Class = require('./Class.js'),
 
 
     var availableWidgets = [
+            {type: 'pumpHeart', name: 'Heart', action: 'Pump'},
+            {type: 'plugArtery', name: 'Artery', action: 'Plug'},
+            {type: 'tickleFeet', name: 'Feet', action: 'Tickle'},
             {type: 'pump', name: 'Lungs', action: 'Pump'},
             {type: 'chestIncision', name: 'Chest', action: 'Sew'},
             {type: 'chargeDefibrilator', name: 'Defibrilator', action: 'Charge'},

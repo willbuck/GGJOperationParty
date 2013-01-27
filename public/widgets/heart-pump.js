@@ -1,6 +1,6 @@
 widgetFactories.pumpHeart = function setupPump(widget){
     
-    widget.type = 'pump';
+    widget.type = 'pumpHeart';
     widget.name = 'Heart';
     
 	var charge = 0.0;

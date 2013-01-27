@@ -1,7 +1,7 @@
 widgetFactories.tickleFeet = function setupPump(widget){
     
-    widget.type = 'tickle';
-    widget.name = 'feet';
+    widget.type = 'tickleFeet';
+    widget.name = 'Feet';
     
 	var charge = 0.0;
 	var buttonState = false;
@@ -30,7 +30,7 @@ widgetFactories.tickleFeet = function setupPump(widget){
 			
 			if(charge == 1){
 				charge = 0;
-				widget.valueChanged('Pump');
+				widget.valueChanged('Tickle');
 			}
 			
 			draw();
