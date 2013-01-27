@@ -28,6 +28,11 @@ socket.on('lobbies', function (data) {
         socket.emit('ready');
     });
 
+    // Every time a new player joins the lobby we get a list of *all* current players
+    socket.on('playerList', function (data) {
+        console.log(data.players);
+    });
+    
     // Hey the game started!
     socket.on('play', function () {
         console.log('play!');
