@@ -134,17 +134,17 @@ var Class = require('./Class.js'),
             
             this.lobby.emit('win');
             
-            this.destroy();
+            this.lobby.reset();
         },
         
         lose: function () {
-            console.log('FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            console.log('FAIL!!!!!!!!!!!!!!');
             
             this.lobby.emit('lose');
             
             this.gameover = true;
             
-            this.destroy();
+            this.lobby.reset();
         },
         
         // Call when you are going to destroy a game
